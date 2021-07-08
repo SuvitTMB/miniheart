@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>4ใจ ได้แน่นอน</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="#myPage">Retail Society</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#services">SERVICES</a></li>
+          <li><a href="#portfolio">PORTFOLIO</a></li>
+          <li><a href="#pricing">PRICING</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="ldp carousel-inner" role="listbox">
+      <div class="item active">
+        <div><img src="./img/slide/slide-1.jpg" class="ldp_img"></div>
+      </div>
+      <div class="item">
+        <div><img src="./img/slide/slide-2.jpg" class="ldp_img"></div>
+      </div>
+      <div class="item">
+        <div><img src="./img/slide/slide-3.jpg" class="ldp_img"></div>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+<!--
+</div>
+-->
+<!-- Container (About Section) -->
+<div id="about" class="container-fluid" style="margin-top:-10px;margin-bottom: 30px;">
+  <div class="row">
+    <div class="col-sm-12">
+      <center>
+      <div class="h3div">"4 ใจ ได้แน่นอน"
+        <br><font color="#002d63">เป้าหมาย หลักปรัชญา และแนวทางการให้บริการ</font></div>
+      </center>
+      <div class="msg-text">ลูกค้าของธนาคารคาดหวังว่าจะได้รับบริการที่ดีจากธนาคาร หลายครั้งที่ความผิดพลาดในการให้บริการที่เกิดขึ้น
+กลายเป็นสาเหตุนำไปสู่การสูญเสียลูกค้าให้กับธนาคารอื่น หรือทำให้ลูกค้าไม่กลับมาใช้บริการอีก</div>
+      <div class="msg-text" id="myDIV" style="display: none;">
+        ในสถานการณ์ที่ลูกค้าได้รับประสบการณ์ที่ไม่ดี อาจจะถือเป็นโอกาสที่ดีสำหรับคุณในการเปลี่ยน
+ความผิดหวังของลูกค้า ให้เป็นโอกาสทางธุรกิจ เพื่อเรียกความเชื่อมั่นและความประทับใจ
+ของลูกค้ากลับคืนมา หากคุณมีการเตรียมรับมือเพื่อแก้ไขปัญหา และทำการแก้ไขอย่างทันท่วงที
+ไม่เกิดความล่าช้า จะส่งผลดีต่อความจงรักภักดีของลูกค้า ทำให้ลูกค้ากลับมาใช้บริการเพิ่มขึ้น
+และมีแนวโน้มที่จะพัฒนาไปเป็นลูกค้าต่อเนื่องในระยะยาว ซึ่งเรียบปรากฎการณ์นี้ว่า Service Recovery Paradox (SRP)
+      </div>
+      <center>
+        <div class="btn-t2" onclick="myFunction()" id="click1" style="width:200px;">ดูรายละเอียดเพิ่มขึ้น</div>
+        <div class="btn-t0" onclick="myFunction()" id="click2" style="width:200px;">ดูรายละเอียดน้อยลง</div>
+      </center>
+    </div>
+  </div>
+</div>
+<div class="clr"></div>
+
+<div class="container-fluid bg-grey">
+  <div class="row">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-globe logo slideanim"></span>
+    </div>
+    <div class="col-sm-8">
+      <!--<h3 style="line-height: 1.4;color:#002d63;"><font color="#f68b1f">Service goal & Service concept</font></h3>-->
+      <div style="text-align: center;">
+        <div class="h3div"><font color="#f68b1f">เป้าหมายในการให้บริการ (Service Goal)</font></div>
+        <div class="msg-goal">เราคือ "<b>ที่ปรึกษาด้านการเงิน</b>"<br>ที่ใส่ใจดูแลให้คนไทย<br>
+          มีสุขภาพทางการเงินที่ดีขึ้น<br></div>
+        <div class="h3div" style="padding-top:30px;">แนวคิดของการให้บริการ (Service Concept)</div>
+        <div class="msg-goal">เราทุกคนจะเป็น<br><b>Trusted advisors ที่ลูกค้าวางใจ</b><br>จนกลายเป็นที่หนึ่งในใจลูกค้า</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Container (Services Section) -->
+<div id="services" class="container-fluid text-center">
+  <div class="slideanim"><img src="./img/GroupHeart-0.png" width="100px;"></div>
+  <div class="h3div">คุณค่าในการให้บริการ (Service Value)</div>
+  <div class="msg-goal" style="padding-top:10px;"><b>หลักการพื้นฐาน<br>ที่ช่วยกำหนดมาตรฐานพฤติกรรมของพนักงาน</b></div>
+  <div class="msg-4h">
+    คือ การให้บริการด้วยหลักการ 4 ใจ ได้แก่ เข้าใจ ใส่ใจ สุดใจ และจริงใจ สามารถอธิบายในเชิงพฤติกรรม ที่พนักงานให้บริการ ควรปฏิบัติกับลูกค้าที่มาใช้บริการธนาคาร ได้ดังนี้
+  </div>
+  <div class="row" style="margin-top:20px;">
+    <div class="col-sm-6 box-4h">
+      <div class="slideanim"><img src="./img/GroupHeart-1.png" width="100px;"></div>
+      <div class="btn-t2" onclick="OpenHeart(1)">เข้าใจ</div>
+      <div class="msg-4h1">การรับฟัง และ<b><u>เข้าใจ</u></b><br>ลูกค้าอย่างแท้จริง</div>
+    </div>
+    <div class="col-sm-6 box-4h">
+      <div class="slideanim"><img src="./img/GroupHeart-2.png" width="100px;"></div>
+      <div class="btn-t2" onclick="OpenHeart(2)">ใส่ใจ</div>
+      <div class="msg-4h1">การดูแล <b><u>ใส่ใจ</u></b>รายละเอียด</div>
+    </div>
+    <div class="col-sm-6 box-4h">
+      <div class="slideanim"><img src="./img/GroupHeart-3.png" width="100px;"></div>
+      <div class="btn-t2" onclick="OpenHeart(3)">สุดใจ</div>
+      <div class="msg-4h1">การแก้ปัญหา ช่วยเหลือ<b><u>สุดใจ</u></b></div>
+    </div>
+    <div class="col-sm-6 box-4h">
+      <div class="slideanim"><img src="./img/GroupHeart-4.png" width="100px;"></div>
+      <div class="btn-t2" onclick="OpenHeart(4)">จริงใจ</div>
+      <div class="msg-4h1"><b><u>จริงใจ</u></b> ให้สิ่งที่ดีที่สุดในระยะยาว</div>
+    </div>
+  </div>
+</div>
+<div class="clr"></div>
+
+<!-- Container (Portfolio Section) -->
+<div id="portfolio" class="container-fluid text-center bg-grey">
+  <div class="h3div">คู่มือ 4 ใจ สำหรับพนักงาน</div>
+  <div style="margin:auto; width:100%;margin-left:5px;">
+    <div class="col-sm-6" style="float: left;width:33%;">
+      <div class="thumbnail">
+        <div>รายละเอียด 4 ใจ</div>
+        <img src="./img/extra.jpg" alt="Paris" max-height="200">
+        <div class="btn-t2" style="min-width:80px !important;">อ่านคู่มือ</div>
+      </div>
+    </div>
+    <div class="col-sm-6" style="float: left;width:33%;">
+      <div class="thumbnail">
+        <div>กลุ่ม BBD</div>
+        <img src="./img/extra.jpg" alt="Paris" max-height="200">
+        <div class="btn-t2" style="min-width:80px !important;">อ่านคู่มือ</div>
+      </div>
+    </div>
+    <div class="col-sm-6" style="float: left;width:33%;">
+      <div class="thumbnail">
+        <div>กลุ่ม Contact Center</div>
+        <img src="./img/extra.jpg" alt="Paris" max-height="200">
+        <div class="btn-t2" style="min-width:80px !important;">อ่านคู่มือ</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clr"></div>
+
+<!-- Container (Pricing Section) -->
+<div id="pricing" class="container-fluid">
+  <div class="text-center">
+    <div class="h3div">ชุดทดสอบความรู้ "4 ใจ"</div>
+    <div style="margin-top:-25px;margin-bottom: 30px;">การทำชุดทดสอบ เพื่อวัดความเข้าใจของพนักงาน</div>
+  </div>
+
+  <div class="row slideanim">
+    <div class="col-sm-3" style="float: left;width:50%;">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <div class="heading-msg">สำหรับ<br>พนักงานสาขา</div>
+        </div>
+        <div class="panel-body">
+          <img src="./img/extra.jpg" width="80%">
+        </div>
+        <div class="panel-footer">
+          <div class="btn-t2" style="margin-top:0px;">Sign Up Now!</div>
+        </div>
+      </div>      
+    </div>     
+    <div class="col-sm-3" style="float: left;width:50%;">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <div class="heading-msg">สำหรับ<br>พนักงาน Contact Center</div>
+        </div>
+        <div class="panel-body">
+          <img src="./img/extra.jpg" width="80%">
+        </div>
+        <div class="panel-footer">
+          <div class="btn-t2" style="margin-top:0px;">Sign Up Now!</div>
+        </div>
+      </div>      
+    </div>       
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div id="contact" class="container-fluid bg-grey">
+  <center><div class="h3div">แนะนำการชื่นชมเพื่อนผ่าน Intranet</div></center>
+  <div class="row">
+    <div style="padding:5px 0px 15px 0px;">
+      <center>
+      <video width="85%" controls="controls">
+        <source src="./vdo/change.mp4" type="video/mp4">
+      </video>
+      </center>
+    </div>
+  </div>
+</div>
+
+<!--
+    <div class="col-sm-5">
+      <p>Contact us and we'll get back to you within 24 hours.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Chicago, US</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
+    </div>
+    <div class="col-sm-7 slideanim">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">Send</button>
+        </div>
+      </div>
+    </div>
+-->
+
+
+
+<!-- Image of location/map -->
+<!--
+<img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%">
+-->
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <div style="font-size:16px;font-weight: 600;"><font color="green">LINE</font> <font color="#002d63">Retail</font> 
+    <font color="#0056ff">So</font><font color="#f68b1f">ciety</font></div>
+</footer>
+
+
+<script src="./js/mainpage.js"></script>
+
+<div id="id01" class="w3-modal w3-animate-opacity">
+  <div class="w3-modal-content w3-card-4">
+    <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+      <div class="TextLastScore">
+        <center>
+          <div class="slideanim"><img src="./img/GroupHeart-1.png" width="100px;"></div>
+          <div class="h3div">เข้าใจ</div>          
+        </center>
+        <ul style="font-size:12px; text-align: left;">
+          <li>เข้าหาลูกค้า สอบถาม รับฟังและเก็บข้อมูลที่เป็นปัจจุบันเกี่ยวกับลูกค้า</li>
+          <li>เคารพความเป็นส่วนตัวของลูกค้า และใช้ข้อมูลเพื่อประโยชน์ของลูกค้าเท่านั้น</li>
+          <li>เตรียมตัวศึกษาข้อมูลล่วงหน้าเพื่อทำความเข้าใจความต้องการเฉพาะของลูกค้าแต่ละคน</li>
+          <li>คิดถึงผลประโยชน์ของลูกค้า และวางแผนนำเสนอสิ่งที่จะช่วยสร้างชีวิตทางการเงินที่ดีขึ้นให้กับลูกค้า เพื่อสร้างความสัมพันธ์ที่ยั่งยืนในระยะยาว</li>
+        </ul>
+      </div>
+      <center>
+        <div class="btn-t2" onclick="CloseAll()">ปิดหน้าต่าง</div>
+      </center>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="id02" class="w3-modal w3-animate-opacity">
+  <div class="w3-modal-content w3-card-4">
+    <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+      <div class="TextLastScore">
+        <center>
+          <div class="slideanim"><img src="./img/GroupHeart-2.png" width="100px;"></div>
+          <div class="h3div">ใส่ใจ</div>          
+        </center>
+        <ul style="font-size:12px; text-align: left;">
+          <li>ยิ้มแย้ม ต้อนรับ ให้เกียรติ ใช้ภาษาที่เข้าใจง่าย และสุภาพอ่อนน้อม</li>
+          <li>ให้บริการลูกค้าอย่างถูกต้อง 100% สร้างความสะดวก และรวดเร็ว</li>
+          <li>ดูแลรายละเอียดการให้บริการลูกค้าทุกรายการ และใส่ใจรายละเอียดเกี่ยวกับตัวลูกค้า และบริบทที่เกี่ยวข้อง เพื่อให้ลูกค้าได้รับประสบการณ์ที่ดีที่สุดในทุกขั้นตอน</li>
+        </ul>
+      </div>
+      <center>
+        <div class="btn-t2" onclick="CloseAll()">ปิดหน้าต่าง</div>
+      </center>
+    </div>
+  </div>
+</div>
+
+
+<div id="id03" class="w3-modal w3-animate-opacity">
+  <div class="w3-modal-content w3-card-4">
+    <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+      <div class="TextLastScore">
+        <center>
+          <div class="slideanim"><img src="./img/GroupHeart-3.png" width="100px;"></div>
+          <div class="h3div">สุดใจ</div>          
+        </center>
+        <ul style="font-size:12px; text-align: left;">
+          <li>สังเกต ทำความเข้าใจสิ่งที่ลูกค้าต้องการ และเสนอตัวให้ความช่วยเหลือ ก่อนที่ลูกค้าจะร้องขอ</li>
+          <li>หาทางออกที่เป็นทางเลือกให้ลูกค้าเสมอ ไม่ปฏิเสธหรือบอกปัด</li>
+          <li>คิดว่าเป็นเจ้าของเคสช่วยเหลืออย่างสุดความสามารถ</li>
+        </ul>
+      </div>
+      <center>
+        <div class="btn-t2" onclick="CloseAll()">ปิดหน้าต่าง</div>
+      </center>
+    </div>
+  </div>
+</div>
+
+
+<div id="id04" class="w3-modal w3-animate-opacity">
+  <div class="w3-modal-content w3-card-4">
+    <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+      <div class="TextLastScore">
+        <center>
+          <div class="slideanim"><img src="./img/GroupHeart-4.png" width="100px;"></div>
+          <div class="h3div">จริงใจ</div>          
+        </center>
+        <ul style="font-size:12px; text-align: left;">
+          <li>คิดและนำเสนอวิธีการแก้ปัญหาที่เหมาะสมกับสถานการณ์และเป็นประโยชน์สูงสุดกับลูกค้าในระยะยาว</li>
+          <li>ให้ข้อมูลลูกค้าอย่างถูกต้อง ครบถ้วน โปร่งใส และตรวจสอบว่าลูกค้าเข้าใจสิ่งที่เรานำเสนอย่างถ่องแท้ทุกด้าน เพื่อการตัดสินใจ</li>
+          <li>ให้คำปรึกษาทุกแง่มุม และให้เวลาสำหรับลูกค้าได้ตัดสินใจด้วยตัวเอง เพื่อทำให้ลูกค้าเห็นคุณค่าและเกิดความไว้วางใจ</li>
+        </ul>
+      </div>
+      <center>
+        <div class="btn-t2" onclick="CloseAll()">ปิดหน้าต่าง</div>
+      </center>
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    document.getElementById('click1').style.display='none';
+    document.getElementById('click2').style.display='block';
+  } else {
+    x.style.display = "none";
+    document.getElementById('click1').style.display='block';
+    document.getElementById('click2').style.display='none';
+  }
+}
+</script>
+
+</body>
+</html>
