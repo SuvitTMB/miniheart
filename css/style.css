@@ -76,7 +76,7 @@
     font-style: normal;
   }
   .panel {
-    border: 1px solid #0056ff; 
+    border: 1px solid #eee; 
     border-radius:0 !important;
     transition: box-shadow 0.5s;
     border-radius: 10px !important;
@@ -393,9 +393,69 @@ body {
   margin-bottom:30px; font-weight:600; font-size: 16px; color: #f68b1f; line-height: 1.4;
 }
 .heading-msg {
-  font-size:15px;color:#fff;line-height: 1.2;
+  font-size:14px;color:#fff;line-height: 1.2;
 }
 .panel-footer { 
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
+}
+.text-intro {
+  font-size: 14px; color:#000000; padding-bottom: 20px; letter-spacing: 2px;
+}
+.text-intro1 {
+  font-size: 13px; color:#0056ff; padding-bottom: 30px; letter-spacing: 1.5px;
+}
+.text-home {
+  font-size:17px; color:#000000;
+}
+.text-4heart1 {
+  font-size: 13px;line-height: 1.4em;color:#000000;text-align: center; margin-top:-25px; 
+  width:100%; font-weight: 700;
+}
+.text-4heart2 {
+  font-size: 13px;line-height: 1.4em;color:#000000;text-align: left; width:100%; padding-top:15px;
+  letter-spacing: 1px;
+}
+.text-4heart3 {
+  font-size:12px; text-align: left;margin-left:-25px;margin-top:20px;
+}
+.panel-body { 
+  padding:5px;
+}
+.box-showimg {
+  width:100%;margin-left: auto; margin-right: auto; margin-top:20px;text-align: center;
+  background-color: #ffff00;
+}
+.box-list {
+  width:50px; height: 50px; float: left; margin:3px; 
+}
+
+
+
+[data-title] {
+  font-size: 18px;
+  position: relative;
+  cursor: help;
+}
+  
+[data-title]:hover::before {
+  content: attr(data-title);
+  position: absolute;
+  bottom: -36px;
+  padding: 6px 15px;
+  background: #0056ff;
+  color: #fff;
+  font-size: 14px;
+  white-space: nowrap;
+  border-radius: 5px;
+  z-index: 100;
+}
+[data-title]:hover::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 8px;
+  border: 8px solid transparent;  
+  border-bottom: 8px solid #0056ff;
+  z-index: 100;
 }
