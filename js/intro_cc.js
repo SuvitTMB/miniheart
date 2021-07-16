@@ -1,6 +1,7 @@
 var cleararray = "";
 
 $(document).ready(function () {
+  alert(sessionStorage.getItem("LineID"));
   LoadID();
 });
 
