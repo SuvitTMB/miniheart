@@ -1,5 +1,15 @@
 // Creating questionss and answers
 //*****************************************************************************
+//alert(sessionStorage.getItem("Survey2"));
+if(sessionStorage.getItem("Survey2")=="0") {
+  //alert("คุณยังไม่ได้ทำชุดทดสอบนี้");
+} else {
+  alert("คุณได้ทำแบบทดสอบชุดนี้ไปแล้ว");
+  window.location = "end_cc.html";
+}
+
+
+
 var cleararray = "";
 var question1 = {
                   question: "เป้าหมาย ในการให้บริการ (Service Goal)",
@@ -46,6 +56,7 @@ var question7 = {
 // create an array of objects
 
 var questions = [question1, question2, question3, question4, question5, question6, question7];
+document.getElementById('quizAll').innerHTML = questions.length;
 
 // Initialize variables
 //------------------------------------------------------------------
@@ -66,7 +77,7 @@ var previousIndex = 0;
 var ulTag = document.getElementsByTagName('ul')[0];
 var button = document.getElementById('submit');
 var questionTitle = document.getElementById('question');
-
+var getQ = [];
 //save class name so it can be reused easily
 //if I want to change it, I have to change it one place
 var classHighlight = 'selected';
@@ -167,6 +178,7 @@ function checkAnswer (){
     var userAns = selectedItem.innerHTML;
   }
 
+
   // change the background of the answer according to the Results
   if (userAns == currentQuestion.answers[currentQuestion.correct]) {
     console.log("Correct! The answer is: "+ userAns);
@@ -191,6 +203,14 @@ function checkAnswer (){
     console.log(currentQuestion.answers[currentQuestion.correct]);
   }
 
+  //alert(tags.substr(3,4));
+  //save in database
+  if(tags.substr(3,4)!="") {
+    getQ.push(tags.substr(3,4));
+    console.log(getQ);
+  }
+
+
   // Create a next Question button once the answer has been submitted
   button.innerHTML = 'Next Question';
   button.className = 'next';
@@ -206,6 +226,8 @@ function checkAnswer (){
   button.onclick = function (){showQuestions()};
   return
 }
+
+ 
 
 // Final score
 //------------------------------------------------------------------
@@ -242,6 +264,12 @@ function showResults () {
   newScore.appendChild(textScore);
   addHere.appendChild(newScore);
   questionTitle.innerHTML = 'ผลการทดสอบของคุณ<br>คุณทำคะแนนได้ <font color="#ffff00">'+ Math.floor((correctAns/questions.length)*100).toFixed(2) +'%</font><br>ขอขอบคุณสำหรับการทำแบบทดสอบ';
+
+
+  var aResult = Math.floor((correctAns/questions.length)*100).toFixed(2)+"%";
+  sessionStorage.setItem("Survey2", "1");
+  sessionStorage.setItem("Survey2Result", aResult);
+
 
   //use jquary to grab the text of the score
   var score = $(".score").text();
