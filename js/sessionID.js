@@ -1,4 +1,4 @@
-var QStatus = "0";
+var vQStatus = "0";
 
 if (typeof(Storage) !== "undefined") {
   // Store
