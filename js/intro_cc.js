@@ -8,7 +8,7 @@ $(document).ready(function () {
 
 function LoadID() {
   var str = "";
-  str = '<div><img src="'+ sessionStorage.getItem("LinePicture") +'" style="width:130px;"></div>';
+  str = '<div><img src="'+ sessionStorage.getItem("LinePicture") +'" class="imgprofile"></div>';
   $("#DisplayLinePicture").html(str);
   $("#DisplayLineName").html(sessionStorage.getItem("LineName"));
 /*
