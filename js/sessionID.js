@@ -1,14 +1,12 @@
-var vLoginStatus = "0";
+var QStatus = "0";
 
 if (typeof(Storage) !== "undefined") {
   // Store
   //sessionStorage.setItem("LineID", vLineID);
   //sessionStorage.setItem("LineName", vLineName);
   //sessionStorage.setItem("LinePicture", vLinePicture);
-  sessionStorage.setItem("LoginStatus", vLoginStatus);
-
+  sessionStorage.setItem("QStatus", vQStatus);
   sessionStorage.setItem("Survey1", "0");
-
   sessionStorage.setItem("Survey2", "0");
   sessionStorage.setItem("Survey2Result", "34.58%");
   sessionStorage.setItem("Survey2Score", "ตอบถูก 5 ข้อ จาก 7 ข้อ");

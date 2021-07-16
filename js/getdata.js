@@ -18,7 +18,7 @@ var db = firebase.firestore().collection("CheckProfile");
 
 
 async function main() {
-	await liff.init({ liffId: "1655966947-5rJYErwX" });
+	await liff.init({ liffId: "1655966947-4RRw7M2b" });
 	document.getElementById("isLoggedIn").append(liff.isLoggedIn());
 	if(liff.isLoggedIn()) {
 	getUserProfile();
@@ -62,18 +62,6 @@ async function getUserProfile() {
 
 
 var CheckUserID = "0";
-/*
-function CheckLineID(gLineID) {
-	db.where('lineID','==',gLineID).get().then((snapshot)=> {
-	  snapshot.forEach(doc=> {
-	    var aStatusConfirm = doc.data().statusconfirm;
-	    Eid = doc.id;
-	    CheckUserID = "1"
-	  });
-	});
-}
-*/
-
 
 function FindID(gLineID) {
 	db.where('lineID','==',gLineID).get().then(function(doc) {
@@ -92,8 +80,26 @@ function FindID(gLineID) {
 
 
 
+function SaveProfile() {
+ 	var dateString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
+    if(CheckUserID=="1") {
+		db.doc(Eid).update({
+        lastcheckin : dateString
+      });
+    } else {
+      db.add({
+        lineID : vLineID,
+        linename : vLineName,
+        empPicture : vLinePicture,
+        lastcheckin : dateString
+      });       
+    }
+}
 
 
+
+
+/*
 function check1(gLineID) {
 	alert("Gid : "+gLineID);
 	db.where('lineID','==',gLineID).get().then((doc) => {
@@ -111,7 +117,7 @@ function check1(gLineID) {
       console.log("Error getting document:", error);
     });
 }
-/*
+
 
 
 	} else {
@@ -119,21 +125,6 @@ function check1(gLineID) {
 */
 
 
-function SaveProfile() {
- 	var dateString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
-    if(CheckUserID=="1") {
-		db.doc(Eid).update({
-        lastcheckin : dateString
-      });
-    } else {
-      db.add({
-        lineID : vLineID,
-        linename : vLineName,
-        empPicture : vLinePicture,
-        lastcheckin : dateString
-      });       
-    }
-}
 
 
 
