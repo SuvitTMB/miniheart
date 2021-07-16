@@ -38,7 +38,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>                        
         </button>
-        <a class="navbar-brand" href="#myPage">Retail Society</a>
+        <a class="navbar-brand" href="mainpage.html#pricing">Retail Society</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
@@ -60,14 +60,18 @@
 
     <div style="padding-bottom: 30px;">
       <center>
+        <!--
         <div><img src="./img/profile.png" style="width:130px;"></div>
         <div class="NameLine">Website</div>
+        -->
+        <div id="DisplayLinePicture"></div>
+        <div id="DisplayLineName" class="NameLine"></div>
       </center>
     </div>
 <!--
     <div style="width:100%;"><center><img src="./img/quiz_cc@.jpg" style="width:75%; border-radius: 10px;"></center></div>
 -->
-    <div style="max-width:400px; width:80%;margin-left:auto; margin-right: auto; text-align: left;margin-top:10px; color:#666666;">
+    <div style="max-width:360px; width:80%;margin-left:auto; margin-right: auto; text-align: left;margin-top:0px; color:#666666;">
       <ul>
         <li>แบบสอบถามนี้มีวัตถุประสงค์เพื่อวัดความเข้าใจเกี่ยวกับหลักการการให้บริการเท่านั้น</li>
         <li>พนักงานสามารถเข้าทำแบบทดสอบได้เพียงครั้งเดียวเท่านั้น</li>
@@ -75,17 +79,32 @@
         <li>เมื่อเข้าสู่แบบทดสอบแล้วจะต้องทำให้แบบสอบถามให้ครบทุกข้อ หากออกจากระบบก่อนจะได้ 0 คะแนน</li>
       </ul>
     </div>
-    <div class="btn-t2" style="margin-top:30px;min-width:80px !important;" onclick="window.location.href='check_cc.html';">ใครทำแล้วบ้าง</div>
-    <div class="btn-t1" style="margin-top:30px;min-width:80px !important;" onclick="window.location.href='start_cc.html';">เริ่มทำการทดสอบ</div>
+    <center>
+      <div class="row" style="margin:auto !important; width:360px;">
+        <div class="btn-t2 btn-add" onclick="window.location.href='check_cc.html';">ใครทำแล้วบ้าง</div>
+        <div class="btn-t1" style="float: left; width:180px !important; padding:5px 25px !important;" onclick="window.location.href='start_cc.html';" id="btn1">เริ่มทำการทดสอบ</div>
+        <div class="btn-t3" style="float: left; width:180px !important; padding:5px 25px !important;" onclick="window.location.href='end_cc.html';" id="btn2">ดูผลการทดสอบ</div>
+      </div>
+    </center>
+    <div class="clr"></div>
+    <div style="height: 70px"></div>
   </center>
 </div>
-<div class="clr"></div>
-<div style="height: 80px"></div>
 
-
-
+<!--
+<script  src="js/getdata.js"></script>
+<script  src="js/sessionID.js"></script>
+-->
+<script  src="js/intro_cc.js"></script>
 <script type="text/javascript">
-	//setTimeout("location.href = 'mainpage.html';",20000);
+  if(sessionStorage.getItem("Survey2")=="0") {
+      document.getElementById("btn1").style.display = "block";
+      document.getElementById("btn2").style.display = "none";
+  } else {
+      document.getElementById("btn1").style.display = "none";
+      document.getElementById("btn2").style.display = "block";
+  }  
 </script>
+
 </body>
 </html>

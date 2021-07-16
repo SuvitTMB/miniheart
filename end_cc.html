@@ -39,7 +39,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>                        
         </button>
-        <a class="navbar-brand" href="#myPage">Retail Society</a>
+        <a class="navbar-brand" href="mainpage.html">Retail Society</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
@@ -61,29 +61,30 @@
 
     <div style="padding-bottom: 30px;">
       <center>
-        <div><img src="./img/profile.png" style="width:130px;"></div>
-        <div class="NameLine">Website</div>
+        <div id="DisplayLinePicture"></div>
+        <div id="DisplayLineName" class="NameLine"></div>
       </center>
     </div>
 <!--
     <div style="width:100%;"><center><img src="./img/quiz_cc@.jpg" style="width:75%; border-radius: 10px;"></center></div>
 -->
     <div style="max-width:400px; width:80%;margin-left:auto; margin-right: auto; text-align: center;margin-top:0px; color:#666666;">
-      <div>คุณทำคะแนนได้</div>
-      <div style="color:#0056ff; font-weight: 600; font-size: 60px;letter-spacing: 2px;margin-top:-15px;">45.89%</div>
-      <div style="font-size: 11px;">(เมื่อวันที่ .......)</div>
+      <div style="color:#000; letter-spacing: 4px; font-weight: 600;">คุณทำชุดทดสอบได้</div>
+      <div class="text-score" id="DisplaySurvey2Result"></div>
+      <div style="font-size: 12px;margin-top:-15px;" id="DisplaySurvey2Date"></div>
     </div>
-    <div class="btn-t2" style="margin-top:40px;min-width:80px !important;" onclick="window.location.href='check_cc.html';">ใครได้คะแนนเท่าไร</div>
-    <div class="btn-t2" style="margin-top:40px;min-width:80px !important;" onclick="window.location.href='mainpage.html';">กลับเมนหลัก</div>
+    <div class="btn-t2" style="margin-top:40px;min-width:80px !important;" onclick="window.location.href='check_cc.html';">ใครทำแล้วบ้าง</div>
+    <div class="btn-t2" style="margin-top:40px;min-width:80px !important;" onclick="window.location.href='mainpage.html#pricing';">กลับเมนหลัก</div>
   </center>
 </div>
 <div class="clr"></div>
 <div style="height: 80px"></div>
 
 
+<!--
+<script src="js/sessionID.js"></script>
+-->
+<script src="js/intro_cc.js"></script>
 
-<script type="text/javascript">
-	//setTimeout("location.href = 'mainpage.html';",20000);
-</script>
 </body>
 </html>
