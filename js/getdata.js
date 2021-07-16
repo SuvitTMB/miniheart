@@ -44,13 +44,13 @@ async function getUserProfile() {
 	vLineID = profile.userId;
 	vLineName = profile.displayName;
 	vLinePicture = profile.pictureUrl;
-	document.getElementById("pictureUrl1").src = profile.pictureUrl;
 	//alert(vLinePicture);
 	//alert(profile.userId+"---"+profile.displayName+"---"+profile.pictureUrl);
 	//var ShowImg = '<div><img src="'+profile.pictureUrl+'" style="width:130px;"></div>';
-	//document.getElementById("DisplayURL").src = profile.pictureUrl;
 	document.getElementById("DisplayLineID").append(profile.userId);
 	document.getElementById("DisplayName").append(profile.displayName);
+	document.getElementById("DisplayURL").src = profile.pictureUrl;
+	//document.getElementById("pictureUrl1").src = profile.pictureUrl;
 	sessionStorage.setItem("LineID", profile.userId);
 	sessionStorage.setItem("LineName", profile.displayName);
 	sessionStorage.setItem("LinePicture", profile.pictureUrl);
