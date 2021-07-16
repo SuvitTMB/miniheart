@@ -82,18 +82,18 @@ function FindID(gLineID) {
 
 function SaveProfile() {
  	var dateString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
-    if(CheckUserID=="1") {
-		db.doc(Eid).update({
-        lastcheckin : dateString
-      });
-    } else {
-      db.add({
-        lineID : vLineID,
-        linename : vLineName,
-        empPicture : vLinePicture,
-        lastcheckin : dateString
-      });       
-    }
+    //if(CheckUserID=="1") {
+	//	db.doc(Eid).update({
+    //    lastcheckin : dateString
+    //  });
+    //} else {
+	db.add({
+	lineID : vLineID,
+	linename : vLineName,
+	empPicture : vLinePicture,
+	lastcheckin : dateString
+	});       
+    //}
 }
 
 
