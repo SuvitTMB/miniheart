@@ -178,3 +178,6 @@ canvas{
 .noshow {
   pointer-events: none;
 }
+.btn-add {
+  margin-top:20px;min-width:80px !important;
+}
