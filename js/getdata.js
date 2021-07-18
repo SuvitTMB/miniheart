@@ -68,12 +68,13 @@ async function getUserProfile() {
 function FindID(gLineID) {
 
 	db.where('LineID','==',gLineID).get().then((snapshot)=> {
-	snapshot.forEach(doc=> {
-	alert(gLineID+"---2");
-			sessionStorage.setItem("LineLogin", doc.data().statuspass);
-			sessionStorage.setItem("EmpID", doc.data().empid);
-			sessionStorage.setItem("EmpName", doc.data().empName);
+		snapshot.forEach(doc=> {
+			alert(gLineID+"---2");
 			alert(doc.data().empName+"----"+gLineID);
+
+			sessionStorage.setItem("LineLogin", doc.data().statuspass);
+			sessionStorage.setItem("EmpID", doc.data().empID);
+			sessionStorage.setItem("EmpName", doc.data().empName);
 
 			//sessionStorage.setItem("Eid", doc.id);
 			//sessionStorage.setItem("QStatus", doc.data().QStatus);
@@ -87,7 +88,7 @@ function FindID(gLineID) {
 	db.where('lineID','==',gLineID).get().then(function(doc) {
 	    if (!doc.empty) {
 	    	alert("มีข้อมูลอยู่แล้ว");
-	        alert(sessionStorage.getItem("EmpName")+"-----");
+	        //alert(sessionStorage.getItem("EmpName")+"-----");
 	    	document.getElementById('gotopage').style.display='block';
 	        //console.log("Document data:", doc[0].data());
 	    } else {
