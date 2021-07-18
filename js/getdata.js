@@ -71,7 +71,7 @@ function FindID(gLineID) {
 			sessionStorage.setItem("LineLogin", doc.data().statuspass);
 			sessionStorage.setItem("EmpID", doc.data().empid);
 			sessionStorage.setItem("EmpName", doc.data().empName);
-			alert(doc.data().empName);
+			alert(doc.data().empName+"----"+gLineID);
 
 			//sessionStorage.setItem("Eid", doc.id);
 			//sessionStorage.setItem("QStatus", doc.data().QStatus);
