@@ -45,7 +45,7 @@ async function getUserProfile() {
 	vLineName = profile.displayName;
 	vLinePicture = profile.pictureUrl;
 	//alert(vLinePicture);
-	alert(profile.userId+"---"+profile.displayName+"---"+profile.pictureUrl);
+	//alert(profile.userId+"---"+profile.displayName+"---"+profile.pictureUrl);
 	//var ShowImg = '<div><img src="'+profile.pictureUrl+'" style="width:130px;"></div>';
 	//document.getElementById("DisplayLineID").append(profile.userId);
 	//document.getElementById("DisplayName").append(profile.displayName);
@@ -71,7 +71,8 @@ function FindID(gLineID) {
 	    } else {
 			alert("ยังไม่มีข้อมูล");
 	        console.log("No such document!");
-			SaveProfile();
+	        window.location = "adddata.html";
+			//SaveProfile();
 	    }
 	}).catch(function(error) {
 	    console.log("Error getting document:", error);

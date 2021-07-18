@@ -13,11 +13,8 @@ sessionStorage.setItem("LinePicture", sLinePicture);
 sessionStorage.setItem("Survey2", sSurvey2);
 
 
-document.getElementById("btn1").style.display = "none";
-document.getElementById("btn2").style.display = "none";
 
 $(document).ready(function () {
-  //alert(sessionStorage.getItem("LineID"));
   CheckLineID();
   LoadID();
 });
@@ -48,6 +45,8 @@ function LoadID() {
 
 
 function CheckLineID() {
+  //document.getElementById("btn1").style.display = "none";
+  //document.getElementById("btn2").style.display = "none";
   db.where('LineID','==',sessionStorage.getItem("LineID")).get().then((snapshot)=> {
     snapshot.forEach(doc=> {
       Eid = doc.id;
@@ -78,35 +77,8 @@ function CheckLineID() {
       document.getElementById("btn1").style.display = "block";
       //document.getElementById("btn2").style.display = "none";
       console.log("No such document!");
-      //SaveNewData();
     }
   }).catch(function(error) {
       console.log("Error getting document:", error);
   });  
-}
-
-
-function SaveNewData() {
-  var dateString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
-  var ssQStatus = 1;
-  var sValue = 0;
-    //if(CheckUserID=="1") {
-  //  db.doc(Eid).update({
-    //    lastcheckin : dateString
-    //  });
-    //} else {
-    db.add({
-      LineID : sessionStorage.getItem("LineID"),
-      LineName : sessionStorage.getItem("LineName"),
-      LinePicture : sessionStorage.getItem("LinePicture"),
-      QStatus : ssQStatus,
-      TypeDep : sTypeDep,
-      Q1 : sValue,
-      Q2 : sValue,
-      Q3 : sValue,
-      Q4 : sValue,
-      Q5 : sValue,
-      QDateTime : dateString
-    });  
-    //}
 }
