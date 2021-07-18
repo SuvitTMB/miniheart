@@ -67,14 +67,19 @@ async function getUserProfile() {
 
 function FindID(gLineID) {
 
-	db.where('LineID','==',gLineID).get().then((snapshot)=> {
-		snapshot.forEach(doc=> {
+
+    db.where('lineID','==',gLineID).get().then((snapshot)=> {
+      	snapshot.forEach(doc=> {
+	        var aStatusConfirm = doc.data().statusconfirm;
+	        var aStatusPass = doc.data().statuspass;
+	        var aStatusEdit = doc.data().statusedit;
+
 			alert(gLineID+"---2");
 			alert(doc.data().empName+"----"+gLineID+"xxxx");
 
-			sessionStorage.setItem("LineLogin", doc.data().statuspass);
-			sessionStorage.setItem("EmpID", doc.data().empID);
-			sessionStorage.setItem("EmpName", doc.data().empName);
+			//sessionStorage.setItem("LineLogin", doc.data().statuspass);
+			//sessionStorage.setItem("EmpID", doc.data().empID);
+			//sessionStorage.setItem("EmpName", doc.data().empName);
 
 			//sessionStorage.setItem("Eid", doc.id);
 			//sessionStorage.setItem("QStatus", doc.data().QStatus);
