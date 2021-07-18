@@ -55,7 +55,7 @@ async function getUserProfile() {
 	sessionStorage.setItem("LineID", profile.userId);
 	sessionStorage.setItem("LineName", profile.displayName);
 	sessionStorage.setItem("LinePicture", profile.pictureUrl);
-	alert(profile.userId+"---1"+);
+	alert(profile.userId+"---1");
 	FindID(profile.userId);
 	//CheckLineID(profile.userId);
     //sessionStorage.setItem("LineID", profile.userId);
@@ -69,7 +69,7 @@ function FindID(gLineID) {
 
 	db.where('LineID','==',gLineID).get().then((snapshot)=> {
 	snapshot.forEach(doc=> {
-	alert(gLineID+"---2"+);
+	alert(gLineID+"---2");
 			sessionStorage.setItem("LineLogin", doc.data().statuspass);
 			sessionStorage.setItem("EmpID", doc.data().empid);
 			sessionStorage.setItem("EmpName", doc.data().empName);
