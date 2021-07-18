@@ -74,12 +74,12 @@ function FindID(gLineID) {
 	        var aStatusPass = doc.data().statuspass;
 	        var aStatusEdit = doc.data().statusedit;
 
+			sessionStorage.setItem("EmpName", doc.data().empName);
 			alert(gLineID+"---2");
-			alert(doc.data().empName+"----"+gLineID+"xxxx");
+			alert(sessionStorage.getItem("EmpName")+"----"+gLineID+"xxxx");
 
 			//sessionStorage.setItem("LineLogin", doc.data().statuspass);
 			//sessionStorage.setItem("EmpID", doc.data().empID);
-			//sessionStorage.setItem("EmpName", doc.data().empName);
 
 			//sessionStorage.setItem("Eid", doc.id);
 			//sessionStorage.setItem("QStatus", doc.data().QStatus);
