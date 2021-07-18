@@ -241,34 +241,28 @@
         if(aStatusPass=="0") {
 	        document.getElementById('fname').disabled = false;
 	        document.getElementById('empid').disabled = false;
-	        //alert("000");
         } else if(aStatusPass!="0") {
 	        document.getElementById('fname').disabled = true;
 	        document.getElementById('empid').disabled = true;
-	        //alert("111");
         }
         Eid = doc.id;
+        sessionStorage.setItem("LineLogin", doc.data().statuspass);
+        sessionStorage.setItem("EmpID", doc.data().empid);
+        sessionStorage.setItem("EmpName", doc.data().empName);
         aCheck = 1;
       });
     });
-
-      //if(aStatusConfirm=="1") {
-      //}
   }
 
 
-
-
   function ClickSaveProfile() {
-	if(document.getElementById("fname").value!="") { var a1 = document.getElementById("fname").value; } else { var a1 = "";}
-	if(document.getElementById("empid").value!="") { var a2 = document.getElementById("empid").value; } else { var a2 = "";}
-	//if(document.getElementById("email").value!="") { var a3 = document.getElementById("email").value; } else { var a3 = "";}
-	if(document.getElementById("phone").value!="") { var a4 = document.getElementById("phone").value; } else { var a4 = "";}
-	if(document.getElementById("br").value!="") { var a5 = document.getElementById("br").value; } else { var a5 = "";}
-	if(document.getElementById("address").value!="") { var a6 = document.getElementById("address").value; } else { var a6 = "";}
-	if(document.getElementById("memo").value!="") { var a7 = document.getElementById("memo").value; } else { var a7 = "";}
-
-
+  	if(document.getElementById("fname").value!="") { var a1 = document.getElementById("fname").value; } else { var a1 = "";}
+  	if(document.getElementById("empid").value!="") { var a2 = document.getElementById("empid").value; } else { var a2 = "";}
+  	//if(document.getElementById("email").value!="") { var a3 = document.getElementById("email").value; } else { var a3 = "";}
+  	if(document.getElementById("phone").value!="") { var a4 = document.getElementById("phone").value; } else { var a4 = "";}
+  	if(document.getElementById("br").value!="") { var a5 = document.getElementById("br").value; } else { var a5 = "";}
+  	if(document.getElementById("address").value!="") { var a6 = document.getElementById("address").value; } else { var a6 = "";}
+  	if(document.getElementById("memo").value!="") { var a7 = document.getElementById("memo").value; } else { var a7 = "";}
 
     if(aCheck==1) {
       db.doc(Eid).update({
@@ -304,16 +298,12 @@
         statusedit : 1   
       });   
     }
-
-
     if(aStatusConfirm==0) {
-      //alert("End");
       document.getElementById('CheckLogin').style.display='none';
       document.getElementById('CheckProfile').style.display='none';
       document.getElementById('CheckConfirm').style.display='block';
       //window.location.href = 'index.html';
     }
-
   }
 
 function GotoWeb() {
@@ -323,24 +313,6 @@ function GotoWeb() {
 
 </script>
 
-  <!-- Vendor JS Files -->
-<!--
-      location.href = 'index.html';
-  <script src="assets/vendor/jquery/jquery.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="assets/vendor/jquery-sticky/jquery.sticky.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/venobox/venobox.min.js"></script>
-  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/js/main.js"></script>
-
-  <script src="js/profile.js"></script>
-
--->
 
 </body>
-
 </html>
