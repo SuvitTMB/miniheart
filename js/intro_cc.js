@@ -18,18 +18,18 @@ document.getElementById("btn2").style.display = "none";
 
 $(document).ready(function () {
   //alert(sessionStorage.getItem("LineID"));
-  CheckLogin();
+  //CheckLogin();
   CheckLineID();
   LoadID();
 });
 
-
+/*
 function CheckLogin() {
   if(sessionStorage.getItem("LineID")==null) {
     window.location.href = 'index.html';
   }
 }
-
+*/
 
 var firebaseConfig = {
   apiKey: "AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE",

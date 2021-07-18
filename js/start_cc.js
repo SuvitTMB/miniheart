@@ -7,6 +7,7 @@
 //  alert("คุณได้ทำแบบทดสอบชุดนี้ไปแล้ว");
 //  window.location = "end_cc.html";
 //}
+/*
 var cleararray = "";
 var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
 var sLineName = "Website";
@@ -15,7 +16,7 @@ var sSurvey2 = "0";
 var sTypeDep = "Contact Center";
 var sQStatus = 0;
 var Eid = "";
-
+*/
 
 
 
@@ -82,6 +83,8 @@ function SaveNewData() {
       LineID : sessionStorage.getItem("LineID"),
       LineName : sessionStorage.getItem("LineName"),
       LinePicture : sessionStorage.getItem("LinePicture"),
+      EmpID : sessionStorage.getItem("EmpID"),
+      EmpName : sessionStorage.getItem("EmpName"),
       QStatus : ssQStatus,
       TypeDep : sTypeDep,
       Q1 : sValue,
