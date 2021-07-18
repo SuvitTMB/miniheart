@@ -72,7 +72,7 @@ function FindID(gLineID) {
 	    	//alert("มีข้อมูลอยู่แล้ว");
 	        alert(gLineID);
 	    	document.getElementById('gotopage').style.display='block';
-	        console.log("Document data:", doc[0].data());
+	        //console.log("Document data:", doc[0].data());
 	    } else {
 			//alert("ยังไม่มีข้อมูล");
 	        console.log("No such document!");
