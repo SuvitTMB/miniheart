@@ -70,7 +70,7 @@ function FindID(gLineID) {
 	db.where('LineID','==',gLineID).get().then((snapshot)=> {
 		snapshot.forEach(doc=> {
 			alert(gLineID+"---2");
-			alert(doc.data().empName+"----"+gLineID);
+			alert(doc.data().empName+"----"+gLineID+"xxxx");
 
 			sessionStorage.setItem("LineLogin", doc.data().statuspass);
 			sessionStorage.setItem("EmpID", doc.data().empID);
