@@ -21,6 +21,12 @@
   <link href='css/w3.css' rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <script src="https://static.line-scdn.net/liff/edge/versions/2.8.1/sdk.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+
+
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
@@ -68,13 +74,13 @@
 <!--
     <div style="width:100%;"><center><img src="./img/quiz_cc@.jpg" style="width:75%; border-radius: 10px;"></center></div>
 -->
-    <div style="max-width:400px; width:80%;margin-left:auto; margin-right: auto; text-align: center;margin-top:0px; color:#666666;">
+    <div style="max-width:360px; width:80%;margin-left:auto; margin-right: auto; text-align: center;margin-top:0px; color:#666666;">
       <div style="color:#000; letter-spacing: 4px; font-weight: 600;">คุณทำชุดทดสอบได้</div>
-      <div class="text-score" id="DisplaySurvey2Result"></div>
-      <div style="font-size: 12px;margin-top:-15px;" id="DisplaySurvey2Date"></div>
+      <div class="text-score" id="DisplayQRatio2"></div>
+      <div style="font-size: 12px;margin-top:-15px;" id="DisplayQDateTime2"></div>
     </div>
     <div class="btn-t2" style="margin-top:40px;min-width:80px !important;" onclick="window.location.href='check_cc.html';">ใครทำแล้วบ้าง</div>
-    <div class="btn-t2" style="margin-top:40px;min-width:80px !important;" onclick="window.location.href='mainpage.html#pricing';">กลับเมนหลัก</div>
+    <div class="btn-t2" style="margin-top:40px;min-width:80px !important;" onclick="window.location.href='mainpage.html#pricing';">กลับเมนูหลัก</div>
   </center>
 </div>
 <div class="clr"></div>
@@ -84,7 +90,7 @@
 <!--
 <script src="js/sessionID.js"></script>
 -->
-<script src="js/intro_cc.js"></script>
+<script src="js/end_cc.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>LINE Retail Society</title>
+	<meta charset="utf-8">
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+	<!-- End Google Tag Manager -->
+
+	<!-- Favicons -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <!-- End Google Tag Manager -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <link href='css/app.css' rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<script src="https://static.line-scdn.net/liff/edge/versions/2.8.1/sdk.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.html">Retail Society</a>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <main id="main">
+    <section id="team" class="team section-bg" style="background-color: #ffffff;min-height:450px;">
+      <div class="container" id="CheckLogin">
+        <div class="section-title" data-aos="fade-up" style="margin-top:10px;">
+          <div style="color:#0056ff;font-size:18px;margin-top:-20px;">LINE Retail Society</div>
+          <div style="padding:15px 0px 15px 0px;">
+            <center>
+            <div style="margin-top:60px;"><img id="pictureUrl" class="imgprofile"></div>
+            <div style="color:#0056ff;font-weight: 700; font-size:16px;"><p id="displayName"></p></div>
+            <div class="btn-t2" onclick="ClickCheckLogin()">คลิกที่นี่ ... เพื่อลงทะเบียนใช้งาน</div>
+            <div style="padding-top:25px;color:#555555;">ขอความร่วมมือในการตรวจสอบความถูกต้อง<br>ของข้อมูลของท่านในการเข้าใช้งาน <b>LINE Retail Society</b><br><br>*** ขอสงวนสิทธิ์การเข้าใช้งานเฉพาะชาว Retail เท่านั้น ***</div>
+            <div><p id="isLoggedIn"></p><p id="userId"></p></div>
+            </center>
+          </div>
+        </div>
+      </div>
+
+      <div class="container" id="CheckProfile">
+        <div class="section-title" data-aos="fade-up" style="margin-top:-10px;color:#555555;">
+          <center>
+          <div style="font-size: 15px;">ตรวจสอบข้อมูลของคุณ</div>
+          <div style="margin-top:60px;"><img id="pictureUrl1" class="imgprofile"></div>
+          <div style="color:#0056ff;font-weight: 700; font-size:16px;"><p id="displayName1"></p></div>
+          </center>
+          <div style="color:#888888;text-align: left;padding:5px 30px;margin-top:15px;font-size:12px;">
+            <div>รหัสพนักงาน (ttb bank) *</div>
+            <div style="color:#0056ff;"><input type="text" id="empid" placeholder="รหัสพนักงาน .."></div>
+            <div>ชื่อ-นามสกุล (ภาษาไทย) *</div>
+            <div style="color:#0056ff;"><input type="text" id="fname" placeholder="ชื่อ นามสกุล .."></div>
+            <div>โทรศัพท์มือถือ</div>
+            <div style="color:#0056ff;"><input type="text" id="phone" placeholder="โทรศัพท์มือถือ .."></div>
+            <div>สังกัดหน่วยงาน</div>
+            <div style="color:#0056ff;">
+              <select name="cars" id="br">
+                <option value="BBD">BBD Team</option>
+                <option value="RASC">RSAC Team</option>
+                <option value="PRODUCT">PRODUCT Team</option>
+                <option value="OCSE">OCSE Team</option>
+                <option value="CHIEF">CHIEF Team</option>
+              </select>
+            </div>
+            <!--
+            <div>สังกัดหน่วยงาน</div>
+            <div><input type="text" id="br" placeholder="หน่วยงาน / สาขา (รหัสสาขา) .."></div>
+            <div>Email@ttbbank.com</div>
+            <div><input type="text" id="email" placeholder="ระบุอีเมล์ .."></div>
+            -->
+            <div>ที่จัดส่งของรางวัล (ที่ตั้งสาขา)</div>
+            <div style="color:#0056ff;"><textarea id="address" placeholder="ระบุที่จัดส่งของรางวัล .." style="height:100px"></textarea></div>
+            <div>ระบุเหตุผลในการเข้าใช้งาน</div>
+            <div style="color:#0056ff;"><textarea id="memo" placeholder="โปรดระบุ .." style="height:100px"></textarea></div>            
+            <center><div class="btn-t2" onclick="ClickSaveProfile()">บันทึกรายการ</div></center>
+          </div>
+        </div>
+      </div>
+
+      <div class="container" id="CheckConfirm">
+        <div class="section-title" data-aos="fade-up" style="margin-top:10px;">
+          <div style="color:#ffffff;font-size:18px;margin-top:-20px;">LINE Retail Society</div>
+          <div style="padding:15px 0px 15px 0px;">
+            <center>
+            <div style="color:#ffff00;font-size:16px;"><p id="displayName"></p></div>
+            <div class="btn-t2" onclick="ClickCheckLogin()">คลิกที่นี่ ... แก้ไขข้อมูล</div>
+            <div style="padding-top:25px;color:#ffffff;">... กรุณารอการยืนยันตัวตนภายใน 48 ชั่วโมง ...<br>ก่อนเข้าทำรายการต่อไป</div>
+            <div style="color:#ffffff;"><p id="isLoggedIn"></p><p id="userId"></p></div>
+            </center>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+  </div>
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Template Main JS File 
+  <script src="js/config.js"></script>-->
+
+
+<script type="text/javascript">
+  //var alineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
+  //var alineID = "testlineid";
+  var aCheck = 0;
+  var Eid = "";
+  var aStatusConfirm = "0";
+  var aStatusPass = "0";
+  var aStatusEdit = "0";
+  var aPicture = "";
+  var aLinename = "";
+
+  //var dateString = timeSolver.getString(new Date(), "YYYY/MM/DD HH:MM:SS.SSS")
+  var dateString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
+  //console.log(dateString);
+
+
+  var firebaseConfig = {
+    apiKey: "AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE",
+    authDomain: "retailproject-6f4fc.firebaseapp.com",
+    projectId: "retailproject-6f4fc",
+    storageBucket: "retailproject-6f4fc.appspot.com",
+    messagingSenderId: "653667385625",
+    appId: "1:653667385625:web:a5aed08500de80839f0588",
+    measurementId: "G-9SKTRHHSW9"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  //firebase.analytics();
+  var db = firebase.firestore().collection("CheckProfile");
+  document.getElementById('CheckLogin').style.display='block';
+  document.getElementById('CheckProfile').style.display='none';
+  document.getElementById('CheckConfirm').style.display='none';
+
+    async function main() {
+      await liff.init({ liffId: "1655966947-4RRw7M2b" });
+      document.getElementById("isLoggedIn").append(liff.isLoggedIn());
+      if(liff.isLoggedIn()) {
+        getUserProfile();
+      } else {
+        liff.login();
+      }
+    }
+    main()
+
+    async function getUserProfile() {
+      const profile = await liff.getProfile();
+      document.getElementById("pictureUrl").src = profile.pictureUrl;
+      document.getElementById("pictureUrl1").src = profile.pictureUrl;
+      document.getElementById("userId").append(profile.userId);
+      document.getElementById("displayName").append(profile.displayName);
+      document.getElementById("displayName1").append(profile.displayName);
+      aPicture = profile.pictureUrl;
+      alineID = profile.userId;
+      aLinename = profile.displayName;
+    }
+
+
+    function openWindow() {
+      liff.openWindow({
+        url: "https://line.me",
+        external: true     
+      })
+    }
+
+/*
+      aPicture = "https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8";
+      alineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
+      //alineID = "U467089c62b6f6e3d574bf3f140154b7b";
+      aLinename = "Website";
+      document.getElementById("pictureUrl").src = aPicture;
+      document.getElementById("pictureUrl1").src = aPicture;
+      document.getElementById("userId").append(alineID);
+      document.getElementById("displayName").append(aLinename);
+      document.getElementById("displayName1").append(aLinename);
+*/
+
+
+	function ClickCheckLogin() {
+		document.getElementById('CheckLogin').style.display='none';
+		document.getElementById('CheckProfile').style.display='block';
+		document.getElementById('CheckConfirm').style.display='none';
+		ReadData(alineID);
+	  //GetLineID(alineID);
+	}
+
+  function ReadData(gLineID) {
+    db.where('lineID','==',gLineID).get().then((snapshot)=> {
+      snapshot.forEach(doc=> {
+        aStatusConfirm = doc.data().statusconfirm;
+        aStatusPass = doc.data().statuspass;
+        aStatusEdit = doc.data().statusedit;
+        if(aStatusConfirm==1) {
+          window.location.href = 'index.html';
+        }
+        //console.log(doc);
+        document.getElementById('CheckLogin').style.display='none';
+        document.getElementById('CheckProfile').style.display='block';
+        document.getElementById('CheckConfirm').style.display='none';
+        document.getElementById("fname").value = doc.data().empName;
+        document.getElementById("empid").value = doc.data().empID;
+        //document.getElementById("email").value = doc.data().empEmail
+        document.getElementById("phone").value = doc.data().empPhone;
+        document.getElementById("br").value = doc.data().empBr;
+        document.getElementById("address").value = doc.data().empAddress;
+        document.getElementById("memo").value = doc.data().memo;
+        if(aStatusPass=="0") {
+	        document.getElementById('fname').disabled = false;
+	        document.getElementById('empid').disabled = false;
+	        //alert("000");
+        } else if(aStatusPass!="0") {
+	        document.getElementById('fname').disabled = true;
+	        document.getElementById('empid').disabled = true;
+	        //alert("111");
+        }
+        Eid = doc.id;
+        aCheck = 1;
+      });
+    });
+
+      //if(aStatusConfirm=="1") {
+      //}
+  }
+
+
+
+
+  function ClickSaveProfile() {
+	if(document.getElementById("fname").value!="") { var a1 = document.getElementById("fname").value; } else { var a1 = "";}
+	if(document.getElementById("empid").value!="") { var a2 = document.getElementById("empid").value; } else { var a2 = "";}
+	//if(document.getElementById("email").value!="") { var a3 = document.getElementById("email").value; } else { var a3 = "";}
+	if(document.getElementById("phone").value!="") { var a4 = document.getElementById("phone").value; } else { var a4 = "";}
+	if(document.getElementById("br").value!="") { var a5 = document.getElementById("br").value; } else { var a5 = "";}
+	if(document.getElementById("address").value!="") { var a6 = document.getElementById("address").value; } else { var a6 = "";}
+	if(document.getElementById("memo").value!="") { var a7 = document.getElementById("memo").value; } else { var a7 = "";}
+
+
+
+    if(aCheck==1) {
+      db.doc(Eid).update({
+        linename : aLinename,
+        empName : a1,
+        empID : a2,
+        //empEmail : a3,
+        empPhone : a4,
+        empBr : a5,
+        empAddress : a6,   
+        memo : a7, 
+        empPicture : aPicture,
+        lastcheckin : dateString,
+        statusconfirm : aStatusConfirm,
+        statusconfirm : 1,  
+        statuspass : 1,
+        statusedit : 1   
+      });
+    } else {
+      db.add({
+        lineID : alineID,
+        linename : aLinename,
+        empName : a1,
+        empID : a2,
+        //empEmail : a3,
+        empPhone : a4,
+        empBr : a5,
+        empAddress : a6,   
+        memo : a7, 
+        empPicture : aPicture,
+        lastcheckin : dateString,
+        statusconfirm : 1,  
+        statuspass : 1,
+        statusedit : 1   
+      });   
+
+    }
+
+
+    if(aStatusConfirm==0) {
+      document.getElementById('CheckLogin').style.display='none';
+      document.getElementById('CheckProfile').style.display='none';
+      document.getElementById('CheckConfirm').style.display='block';
+    } else {
+      //window.location.href = 'activity.html';
+    }
+
+  }
+
+
+
+</script>
+
+  <!-- Vendor JS Files -->
+<!--
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script src="js/profile.js"></script>
+
+-->
+
+</body>
+
+</html>
