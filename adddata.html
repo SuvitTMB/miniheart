@@ -281,8 +281,8 @@
         empPicture : aPicture,
         lastcheckin : dateString,
         statusconfirm : aStatusConfirm,
-        statuspass : 1,
-        statusedit : 1   
+        statuspass : aStatusPass,
+        statusedit : aStatusEdit   
       });
     } else {
       db.add({
@@ -297,8 +297,8 @@
         memo : a7, 
         empPicture : aPicture,
         lastcheckin : dateString,
-        statusconfirm : 1,  
-        statuspass : 1,
+        statusconfirm : 0,  
+        statuspass : 0,
         statusedit : 1   
       });   
     }
