@@ -136,9 +136,9 @@
   //var alineID = "testlineid";
   var aCheck = 0;
   var Eid = "";
-  var aStatusConfirm = "0";
-  var aStatusPass = "0";
-  var aStatusEdit = "0";
+  var aStatusConfirm = 0;
+  var aStatusPass = 0;
+  var aStatusEdit = 0;
   var aPicture = "";
   var aLinename = "";
 
@@ -281,7 +281,6 @@
         empPicture : aPicture,
         lastcheckin : dateString,
         statusconfirm : aStatusConfirm,
-        statusconfirm : 1,  
         statuspass : 1,
         statusedit : 1   
       });
@@ -305,12 +304,11 @@
     }
 
 
-    if(aStatusConfirm==0) {
+    if(aStatusConfirm==1) {
       document.getElementById('CheckLogin').style.display='none';
       document.getElementById('CheckProfile').style.display='none';
-      //document.getElementById('CheckConfirm').style.display='block';
-      //window.location.href = 'index.html';
-    } else {
+      document.getElementById('CheckConfirm').style.display='block';
+      window.location.href = 'index.html';
     }
 
   }
