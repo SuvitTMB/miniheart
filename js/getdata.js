@@ -84,7 +84,7 @@ function FindID(gLineID) {
 
 	db.where('lineID','==',gLineID).get().then(function(doc) {
 	    if (!doc.empty) {
-	    	//alert("มีข้อมูลอยู่แล้ว");
+	    	alert("มีข้อมูลอยู่แล้ว");
 	        alert(sessionStorage.getItem("EmpName")+"-----");
 	    	document.getElementById('gotopage').style.display='block';
 	        //console.log("Document data:", doc[0].data());
