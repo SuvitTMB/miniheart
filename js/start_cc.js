@@ -86,7 +86,7 @@ function SaveNewData() {
       EmpID : sessionStorage.getItem("EmpID"),
       EmpName : sessionStorage.getItem("EmpName"),
       QStatus : ssQStatus,
-      TypeDep : sTypeDep,
+      TypeDep : sessionStorage.getItem("EmpBR"),
       Q1 : sValue,
       Q2 : sValue,
       Q3 : sValue,
