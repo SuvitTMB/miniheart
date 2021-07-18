@@ -24,6 +24,13 @@ $(document).ready(function () {
 });
 
 
+function CheckLogin() {
+  if(sessionStorage.getItem("LineID")==null) {
+    window.location.href = 'index.html';
+  }
+}
+
+
 var firebaseConfig = {
   apiKey: "AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE",
   authDomain: "retailproject-6f4fc.firebaseapp.com",
