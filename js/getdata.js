@@ -65,6 +65,22 @@ async function getUserProfile() {
 //var CheckUserID = "0";
 
 function FindID(gLineID) {
+
+	db.where('LineID','==',gLineID).get().then((snapshot)=> {
+	snapshot.forEach(doc=> {
+			sessionStorage.setItem("LineLogin", doc.data().statuspass);
+			sessionStorage.setItem("EmpID", doc.data().empid);
+			sessionStorage.setItem("EmpName", doc.data().empName);
+
+			sessionStorage.setItem("Eid", doc.id);
+			sessionStorage.setItem("QStatus", doc.data().QStatus);
+			sessionStorage.setItem("QRatio2", doc.data().QRatio);
+			sessionStorage.setItem("QDateTime2", doc.data().QDateTime);
+			$("#DisplayQRatio2").html(doc.data().QRatio);
+			$("#DisplayQDateTime2").html("เมื่อวันที่ "+doc.data().QDateTime);
+		});
+	});
+
 	db.where('lineID','==',gLineID).get().then(function(doc) {
 	    if (!doc.empty) {
 	    	//alert("มีข้อมูลอยู่แล้ว");
