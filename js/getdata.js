@@ -75,11 +75,10 @@ function FindID(gLineID) {
 	        var aStatusEdit = doc.data().statusedit;
 
 			sessionStorage.setItem("EmpName", doc.data().empName);
+			sessionStorage.setItem("EmpID", doc.data().empID);
 			alert(gLineID+"---2");
-			alert(sessionStorage.getItem("EmpName")+"----"+gLineID+"xxxx");
 
 			//sessionStorage.setItem("LineLogin", doc.data().statuspass);
-			//sessionStorage.setItem("EmpID", doc.data().empID);
 
 			//sessionStorage.setItem("Eid", doc.id);
 			//sessionStorage.setItem("QStatus", doc.data().QStatus);
@@ -92,8 +91,9 @@ function FindID(gLineID) {
 
 	db.where('lineID','==',gLineID).get().then(function(doc) {
 	    if (!doc.empty) {
-	    	alert("มีข้อมูลอยู่แล้ว");
+	    	//alert("มีข้อมูลอยู่แล้ว");
 	        //alert(sessionStorage.getItem("EmpName")+"-----");
+			alert(sessionStorage.getItem("EmpName")+"----"+gLineID+"kkkk");
 	    	document.getElementById('gotopage').style.display='block';
 	        //console.log("Document data:", doc[0].data());
 	    } else {
