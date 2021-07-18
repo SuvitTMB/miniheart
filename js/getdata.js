@@ -71,13 +71,14 @@ function FindID(gLineID) {
 			sessionStorage.setItem("LineLogin", doc.data().statuspass);
 			sessionStorage.setItem("EmpID", doc.data().empid);
 			sessionStorage.setItem("EmpName", doc.data().empName);
+			alert(doc.data().empName);
 
-			sessionStorage.setItem("Eid", doc.id);
-			sessionStorage.setItem("QStatus", doc.data().QStatus);
-			sessionStorage.setItem("QRatio2", doc.data().QRatio);
-			sessionStorage.setItem("QDateTime2", doc.data().QDateTime);
-			$("#DisplayQRatio2").html(doc.data().QRatio);
-			$("#DisplayQDateTime2").html("เมื่อวันที่ "+doc.data().QDateTime);
+			//sessionStorage.setItem("Eid", doc.id);
+			//sessionStorage.setItem("QStatus", doc.data().QStatus);
+			//sessionStorage.setItem("QRatio2", doc.data().QRatio);
+			//sessionStorage.setItem("QDateTime2", doc.data().QDateTime);
+			//$("#DisplayQRatio2").html(doc.data().QRatio);
+			//$("#DisplayQDateTime2").html("เมื่อวันที่ "+doc.data().QDateTime);
 		});
 	});
 
