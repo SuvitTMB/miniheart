@@ -12,11 +12,11 @@ var cleararray = "";
 var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
 var sLineName = "Website";
 var sLinePicture = "https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8";
+*/
+var Eid = "";
 var sSurvey2 = "0";
 var sTypeDep = "Contact Center";
 var sQStatus = 0;
-var Eid = "";
-*/
 
 
 
