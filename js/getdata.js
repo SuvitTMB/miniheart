@@ -74,6 +74,7 @@ function FindID(gLineID) {
 	        var aStatusPass = doc.data().statuspass;
 	        var aStatusEdit = doc.data().statusedit;
 
+	        sessionStorage.setItem("LineLogin", doc.data().statuspass);
 			sessionStorage.setItem("EmpName", doc.data().empName);
 			sessionStorage.setItem("EmpID", doc.data().empID);
 			alert(gLineID+"---2");
