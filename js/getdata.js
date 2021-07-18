@@ -22,9 +22,9 @@ async function main() {
 	await liff.init({ liffId: "1655966947-4RRw7M2b" });
 	document.getElementById("isLoggedIn").append(liff.isLoggedIn());
 	if(liff.isLoggedIn()) {
-	getUserProfile();
+		getUserProfile();
 	} else {
-	liff.login();
+		liff.login();
 	}
 }
 main();
@@ -32,8 +32,8 @@ main();
 
 function openWindow() {
 	liff.openWindow({
-	url: "https://line.me",
-	external: true     
+		url: "https://line.me",
+		external: true     
 	})
 }
 
@@ -55,8 +55,6 @@ async function getUserProfile() {
 	sessionStorage.setItem("LineID", profile.userId);
 	sessionStorage.setItem("LineName", profile.displayName);
 	sessionStorage.setItem("LinePicture", profile.pictureUrl);
-	sessionStorage.setItem("LinePicture", profile.pictureUrl);
-	sessionStorage.setItem("LinePicture", profile.pictureUrl);
 	FindID(profile.userId);
 	//CheckLineID(profile.userId);
     //sessionStorage.setItem("LineID", profile.userId);
@@ -64,13 +62,13 @@ async function getUserProfile() {
 
 
 
-var CheckUserID = "0";
+//var CheckUserID = "0";
 
 function FindID(gLineID) {
 	db.where('lineID','==',gLineID).get().then(function(doc) {
 	    if (!doc.empty) {
 	    	//alert("มีข้อมูลอยู่แล้ว");
-	        alert(gLineID);
+	        alert(sessionStorage.getItem("LineID"));
 	    	document.getElementById('gotopage').style.display='block';
 	        //console.log("Document data:", doc[0].data());
 	    } else {
@@ -85,6 +83,7 @@ function FindID(gLineID) {
 }
 
 
+/*
 
 function SaveProfile() {
  	var dateString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
@@ -94,17 +93,16 @@ function SaveProfile() {
     //  });
     //} else {
 	db.add({
-	lineID : vLineID,
-	linename : vLineName,
-	empPicture : vLinePicture,
-	lastcheckin : dateString
+		lineID : vLineID,
+		linename : vLineName,
+		empPicture : vLinePicture,
+		lastcheckin : dateString
 	});       
     //}
 }
 
 
 
-/*
 function check1(gLineID) {
 	alert("Gid : "+gLineID);
 	db.where('lineID','==',gLineID).get().then((doc) => {
