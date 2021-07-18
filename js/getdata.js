@@ -1,6 +1,7 @@
 var vLineID = "";
 var vLineName = "";
 var vLinePicture = "";
+document.getElementById('gotopage').style.display='none';
 
 
 
@@ -66,10 +67,11 @@ var CheckUserID = "0";
 function FindID(gLineID) {
 	db.where('lineID','==',gLineID).get().then(function(doc) {
 	    if (!doc.empty) {
-	    	alert("มีข้อมูลอยู่แล้ว");
+	    	//alert("มีข้อมูลอยู่แล้ว");
+	    	document.getElementById('gotopage').style.display='block';
 	        console.log("Document data:", doc[0].data());
 	    } else {
-			alert("ยังไม่มีข้อมูล");
+			//alert("ยังไม่มีข้อมูล");
 	        console.log("No such document!");
 	        window.location = "adddata.html";
 			//SaveProfile();
@@ -96,7 +98,6 @@ function SaveProfile() {
 	});       
     //}
 }
-
 
 
 
