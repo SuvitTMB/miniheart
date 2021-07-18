@@ -55,6 +55,8 @@ async function getUserProfile() {
 	sessionStorage.setItem("LineID", profile.userId);
 	sessionStorage.setItem("LineName", profile.displayName);
 	sessionStorage.setItem("LinePicture", profile.pictureUrl);
+	sessionStorage.setItem("LinePicture", profile.pictureUrl);
+	sessionStorage.setItem("LinePicture", profile.pictureUrl);
 	FindID(profile.userId);
 	//CheckLineID(profile.userId);
     //sessionStorage.setItem("LineID", profile.userId);
@@ -70,6 +72,7 @@ function FindID(gLineID) {
 	    	//alert("มีข้อมูลอยู่แล้ว");
 	    	document.getElementById('gotopage').style.display='block';
 	        console.log("Document data:", doc[0].data());
+	        alert(gLineID);
 	    } else {
 			//alert("ยังไม่มีข้อมูล");
 	        console.log("No such document!");
