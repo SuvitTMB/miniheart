@@ -266,10 +266,10 @@ if(aStatusPass==9) {
         document.getElementById("br").value = doc.data().empBr;
         document.getElementById("address").value = doc.data().empAddress;
         document.getElementById("memo").value = doc.data().memo;
-        if(aStatusPass=="0") {
+        if(aStatusConfirm==0) {
 	        document.getElementById('fname').disabled = false;
 	        document.getElementById('empid').disabled = false;
-        } else if(aStatusPass!="0") {
+        } else if(aStatusConfirm!=0) {
 	        document.getElementById('fname').disabled = true;
 	        document.getElementById('empid').disabled = true;
         }
