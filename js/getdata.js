@@ -77,6 +77,7 @@ function FindID(gLineID) {
 	        //StatusConfirm == 9 (ล็อคการเข้าใช้โปรแกรม)
 	        if(doc.data().statusconfirm==9) {
 		        alert("กรุณารอการตรวจสอบข้อมูล/ทำการตรวจสอบความถูกต้องของข้อมูลอีกครั้ง");
+	    		document.getElementById('gotopage').style.display='none';
 	        	localStorage.removeItem("LineLogin");
 	        	window.location = "checkprofile.html";
 	        } else {
@@ -102,7 +103,9 @@ function FindID(gLineID) {
 	    if (!doc.empty) {
 	    	//alert("มีข้อมูลอยู่แล้ว");
 			//alert(sessionStorage.getItem("EmpName")+"----"+gLineID+"7777");
-	    	document.getElementById('gotopage').style.display='block';
+	    	if(aStatusConfirm!=9) {
+		    	document.getElementById('gotopage').style.display='block';
+	    	}
 	        //console.log("Document data:", doc[0].data());
 	    } else {
 			//alert("ยังไม่มีข้อมูล");
