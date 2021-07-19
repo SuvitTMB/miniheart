@@ -76,10 +76,16 @@ function FindID(gLineID) {
 	        //statusedit == 2 (ล็อคการแก้ไขรหัสและชื่อ-สกุล)
 	        //StatusConfirm == 9 (ล็อคการเข้าใช้โปรแกรม)
 	        alert("เช็ค StatusConfirm == "+aStatusConfirm);
-	        sessionStorage.setItem("LineLogin", doc.data().statuspass);
-			sessionStorage.setItem("EmpName", doc.data().empName);
-			sessionStorage.setItem("EmpID", doc.data().empID);
-			sessionStorage.setItem("EmpBR", doc.data().empBr);
+	        if(doc.data().statusconfirm==9) {
+	        	localStorage.removeItem("LineLogin");
+	        	window.location = "checkprofile.html";
+	        	alert("gotoweb");
+	        } else {
+		        sessionStorage.setItem("LineLogin", doc.data().statuspass);
+				sessionStorage.setItem("EmpName", doc.data().empName);
+				sessionStorage.setItem("EmpID", doc.data().empID);
+				sessionStorage.setItem("EmpBR", doc.data().empBr);
+			}
 			//alert(gLineID+"---2");
 
 			//sessionStorage.setItem("LineLogin", doc.data().statuspass);
