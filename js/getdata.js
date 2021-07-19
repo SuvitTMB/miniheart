@@ -73,7 +73,9 @@ function FindID(gLineID) {
 	        var aStatusConfirm = doc.data().statusconfirm;
 	        var aStatusPass = doc.data().statuspass;
 	        var aStatusEdit = doc.data().statusedit;
-
+	        //statusedit == 2 (ล็อคการแก้ไขรหัสและชื่อ-สกุล)
+	        //StatusConfirm == 9 (ล็อคการเข้าใช้โปรแกรม)
+	        alert("เช็ค StatusConfirm == "+aStatusConfirm);
 	        sessionStorage.setItem("LineLogin", doc.data().statuspass);
 			sessionStorage.setItem("EmpName", doc.data().empName);
 			sessionStorage.setItem("EmpID", doc.data().empID);
