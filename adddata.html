@@ -291,6 +291,7 @@ if(aStatusPass==9) {
 
 
   function ClickSaveProfile() {
+    var GotoPage = 0;
     var inpObj = document.getElementById("empid");
     var inpObj1 = document.getElementById("fname");
     var inpObj2 = document.getElementById("memo");
@@ -335,6 +336,7 @@ if(aStatusPass==9) {
         statuspass : aStatusPass,
         statusedit : aStatusEdit   
       });
+      GotoPage = 1;
     } else {
       db.add({
         lineID : alineID,
@@ -352,11 +354,13 @@ if(aStatusPass==9) {
         statuspass : 0,
         statusedit : 1   
       });   
+      GotoPage = 1;
     }
-    if(aStatusConfirm==0) {
-      document.getElementById('CheckLogin').style.display='none';
-      document.getElementById('CheckProfile').style.display='none';
-      document.getElementById('CheckConfirm').style.display='block';
+    if(GotoPage==1) {
+      GotoWeb();
+      //document.getElementById('CheckLogin').style.display='none';
+      //document.getElementById('CheckProfile').style.display='none';
+      //document.getElementById('CheckConfirm').style.display='block';
       //document.getElementById('CheckLockUser').style.display='none';
       //window.location.href = 'index.html';
     }
