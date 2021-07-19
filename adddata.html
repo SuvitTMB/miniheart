@@ -61,7 +61,7 @@
             <center>
             <div style="margin-top:60px;"><img id="pictureUrl" class="imgprofile"></div>
             <div style="color:#0056ff;font-weight: 700; font-size:16px;"><p id="displayName"></p></div>
-            <div class="btn-t2" onclick="ClickCheckLogin()">คลิกที่นี่ ... เพื่อลงทะเบียนใช้งาน</div>
+            <div class="btn-t2" onclick="ClickCheckLogin()">คลิกที่นี่ ... เพื่อลงทะเบียนเริ่มต้นใช้งาน</div>
             <div style="padding-top:25px;color:#555555;">ขอความร่วมมือในการตรวจสอบความถูกต้อง<br>ของข้อมูลของท่านในการเข้าใช้งาน <b>LINE Retail Society</b><br><br>*** ขอสงวนสิทธิ์การเข้าใช้งานเฉพาะชาว Retail เท่านั้น ***</div>
             <div><div id="isLoggedIn" style="color:#ffffff;"></div><div id="userId" style="color:#ffffff;"></div></div>
             </center>
@@ -131,7 +131,7 @@
         </div>
       </div>
 
-
+<!--
       <div class="container" id="CheckLockUser">
         <div class="section-title" data-aos="fade-up" style="margin-top:10px;">
           <div style="color:#ffffff;font-size:18px;margin-top:-20px;font-weight: 700;">LINE Retail Society</div>
@@ -147,7 +147,7 @@
           </div>
         </div>
       </div>
-
+-->
 
     </section>
   </main>
@@ -191,7 +191,7 @@
   document.getElementById('CheckLogin').style.display='block';
   document.getElementById('CheckProfile').style.display='none';
   document.getElementById('CheckConfirm').style.display='none';
-  document.getElementById('CheckLockUser').style.display='none';
+  //document.getElementById('CheckLockUser').style.display='none';
 
 
 /*
@@ -239,7 +239,7 @@ if(aStatusPass==9) {
 		document.getElementById('CheckLogin').style.display='none';
 		document.getElementById('CheckProfile').style.display='block';
 		document.getElementById('CheckConfirm').style.display='none';
-    document.getElementById('CheckLockUser').style.display='none';
+    //document.getElementById('CheckLockUser').style.display='none';
 		ReadData(alineID);
 	  //GetLineID(alineID);
 	}
@@ -255,19 +255,10 @@ if(aStatusPass==9) {
           window.location.href = 'index.html';
         }
 
-        if(aStatusPass==9) {
-          document.getElementById('CheckLogin').style.display='none';
-          document.getElementById('CheckProfile').style.display='none';
-          document.getElementById('CheckConfirm').style.display='none';
-          document.getElementById('CheckLockUser').style.display='block';
-        } else {
-          document.getElementById('CheckLogin').style.display='none';
-          document.getElementById('CheckProfile').style.display='block';
-          document.getElementById('CheckConfirm').style.display='none';
-          document.getElementById('CheckLockUser').style.display='none';
-        }
-
-        //console.log(doc);
+        document.getElementById('CheckLogin').style.display='none';
+        document.getElementById('CheckProfile').style.display='block';
+        document.getElementById('CheckConfirm').style.display='none';
+        //document.getElementById('CheckLockUser').style.display='none';
 
         document.getElementById("fname").value = doc.data().empName;
         document.getElementById("empid").value = doc.data().empID;
@@ -366,7 +357,7 @@ if(aStatusPass==9) {
       document.getElementById('CheckLogin').style.display='none';
       document.getElementById('CheckProfile').style.display='none';
       document.getElementById('CheckConfirm').style.display='block';
-      document.getElementById('CheckLockUser').style.display='none';
+      //document.getElementById('CheckLockUser').style.display='none';
       //window.location.href = 'index.html';
     }
   }
