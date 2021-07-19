@@ -80,7 +80,7 @@ function FindID(gLineID) {
 	        //StatusConfirm == 9 (ล็อคการเข้าใช้โปรแกรม)
 	        if(doc.data().statusconfirm==9) {
 	    		document.getElementById('gotopage').style.display='none';
-		        alert("กรุณารอการตรวจสอบข้อมูล/ทำการตรวจสอบความถูกต้องของข้อมูลอีกครั้ง");
+		        //alert("กรุณารอการตรวจสอบข้อมูล/ทำการตรวจสอบความถูกต้องของข้อมูลอีกครั้ง");
 	        	localStorage.removeItem("LineLogin");
 	        	window.location = "checkprofile.html";
 	        } 
