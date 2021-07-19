@@ -103,9 +103,7 @@ function FindID(gLineID) {
 	    if (!doc.empty) {
 	    	//alert("มีข้อมูลอยู่แล้ว");
 			//alert(sessionStorage.getItem("EmpName")+"----"+gLineID+"7777");
-	    	if(aStatusConfirm!=9) {
-		    	document.getElementById('gotopage').style.display='block';
-	    	}
+	    	document.getElementById('gotopage').style.display='block';
 	        //console.log("Document data:", doc[0].data());
 	    } else {
 			//alert("ยังไม่มีข้อมูล");
