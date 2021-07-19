@@ -274,10 +274,10 @@ if(aStatusPass==9) {
         document.getElementById("address").value = doc.data().empAddress;
         document.getElementById("memo").value = doc.data().memo;
         alert("aStatusEdit = "+aStatusEdit);
-        if(aStatusEdit==0) {
+        if(aStatusEdit!=0) {
 	        document.getElementById('fname').disabled = false;
 	        document.getElementById('empid').disabled = false;
-        } else if(aStatusEdit!=0) {
+        } else if(aStatusEdit==0) {
 	        document.getElementById('fname').disabled = true;
 	        document.getElementById('empid').disabled = true;
         }
