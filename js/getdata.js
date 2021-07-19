@@ -85,7 +85,7 @@ function FindID(gLineID) {
 			sessionStorage.setItem("EmpName", doc.data().empName);
 			sessionStorage.setItem("EmpID", doc.data().empID);
 			sessionStorage.setItem("EmpBR", doc.data().empBr);
-	    	document.getElementById('gotopage').style.display='block';
+	    	//document.getElementById('gotopage').style.display='block';
 			//alert(gLineID+"---2");
 
 			//sessionStorage.setItem("LineLogin", doc.data().statuspass);
