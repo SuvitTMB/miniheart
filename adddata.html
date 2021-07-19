@@ -290,35 +290,40 @@ if(aStatusPass==9) {
 */
 
 
-  function ClickSaveProfile() {
-    var GotoPage = 0;
-    var inpObj = document.getElementById("empid");
-    var inpObj1 = document.getElementById("fname");
-    var inpObj2 = document.getElementById("memo");
+function ClickSaveProfile() {
+  var GotoPage = 0;
+  var CheckReq = 0;
+  var inpObj = document.getElementById("empid");
+  var inpObj1 = document.getElementById("fname");
+  var inpObj2 = document.getElementById("memo");
 
-    if (!inpObj.checkValidity()) {
-      document.getElementById("empid_req").innerHTML = inpObj.validationMessage;
-    } else {
-      document.getElementById("empid_req").innerHTML = "";
-    } 
-    if (!inpObj1.checkValidity()) {
-      document.getElementById("fname_req").innerHTML = inpObj1.validationMessage;
-    } else {
-      document.getElementById("fname_req").innerHTML = "";
-    } 
-    if (!inpObj2.checkValidity()) {
-      document.getElementById("memo_req").innerHTML = inpObj2.validationMessage;
-    } else {
-      document.getElementById("memo_req").innerHTML = "";
-    } 
+  if (!inpObj.checkValidity()) {
+    document.getElementById("empid_req").innerHTML = inpObj.validationMessage;
+  } else {
+    CheckReq = CheckReq+1;
+    document.getElementById("empid_req").innerHTML = "";
+  } 
+  if (!inpObj1.checkValidity()) {
+    document.getElementById("fname_req").innerHTML = inpObj1.validationMessage;
+  } else {
+    CheckReq = CheckReq+1;
+    document.getElementById("fname_req").innerHTML = "";
+  } 
+  if (!inpObj2.checkValidity()) {
+    document.getElementById("memo_req").innerHTML = inpObj2.validationMessage;
+  } else {
+    CheckReq = CheckReq+1;
+    document.getElementById("memo_req").innerHTML = "";
+  } 
 
-  	if(document.getElementById("fname").value!="") { var a1 = document.getElementById("fname").value; } else { var a1 = "";}
-  	if(document.getElementById("empid").value!="") { var a2 = document.getElementById("empid").value; } else { var a2 = "";}
-  	//if(document.getElementById("email").value!="") { var a3 = document.getElementById("email").value; } else { var a3 = "";}
-  	if(document.getElementById("phone").value!="") { var a4 = document.getElementById("phone").value; } else { var a4 = "";}
-  	if(document.getElementById("br").value!="") { var a5 = document.getElementById("br").value; } else { var a5 = "";}
-  	if(document.getElementById("address").value!="") { var a6 = document.getElementById("address").value; } else { var a6 = "";}
-  	if(document.getElementById("memo").value!="") { var a7 = document.getElementById("memo").value; } else { var a7 = "";}
+  if(CheckReq==3) {
+    if(document.getElementById("fname").value!="") { var a1 = document.getElementById("fname").value; } else { var a1 = "";}
+    if(document.getElementById("empid").value!="") { var a2 = document.getElementById("empid").value; } else { var a2 = "";}
+    //if(document.getElementById("email").value!="") { var a3 = document.getElementById("email").value; } else { var a3 = "";}
+    if(document.getElementById("phone").value!="") { var a4 = document.getElementById("phone").value; } else { var a4 = "";}
+    if(document.getElementById("br").value!="") { var a5 = document.getElementById("br").value; } else { var a5 = "";}
+    if(document.getElementById("address").value!="") { var a6 = document.getElementById("address").value; } else { var a6 = "";}
+    if(document.getElementById("memo").value!="") { var a7 = document.getElementById("memo").value; } else { var a7 = "";}
 
     if(aCheck==1) {
       db.doc(Eid).update({
@@ -364,7 +369,9 @@ if(aStatusPass==9) {
       //document.getElementById('CheckLockUser').style.display='none';
       //window.location.href = 'index.html';
     }
+
   }
+}
 
 function GotoWeb() {
   window.location.href = 'index.html';
