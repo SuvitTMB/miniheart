@@ -75,11 +75,10 @@ function FindID(gLineID) {
 	        var aStatusEdit = doc.data().statusedit;
 	        //statusedit == 2 (ล็อคการแก้ไขรหัสและชื่อ-สกุล)
 	        //StatusConfirm == 9 (ล็อคการเข้าใช้โปรแกรม)
-	        alert("เช็ค StatusConfirm == "+aStatusConfirm);
 	        if(doc.data().statusconfirm==9) {
+		        alert("กรุณารอการตรวจสอบข้อมูล/ทำการตรวจสอบความถูกต้องของข้อมูลอีกครั้ง");
 	        	localStorage.removeItem("LineLogin");
 	        	window.location = "checkprofile.html";
-	        	alert("gotoweb");
 	        } else {
 		        sessionStorage.setItem("LineLogin", doc.data().statuspass);
 				sessionStorage.setItem("EmpName", doc.data().empName);
