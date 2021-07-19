@@ -80,12 +80,12 @@ function FindID(gLineID) {
 	    		document.getElementById('gotopage').style.display='none';
 	        	localStorage.removeItem("LineLogin");
 	        	window.location = "checkprofile.html";
-	        } else {
-		        sessionStorage.setItem("LineLogin", doc.data().statuspass);
-				sessionStorage.setItem("EmpName", doc.data().empName);
-				sessionStorage.setItem("EmpID", doc.data().empID);
-				sessionStorage.setItem("EmpBR", doc.data().empBr);
-			}
+	        } 
+	        sessionStorage.setItem("LineLogin", doc.data().statuspass);
+			sessionStorage.setItem("EmpName", doc.data().empName);
+			sessionStorage.setItem("EmpID", doc.data().empID);
+			sessionStorage.setItem("EmpBR", doc.data().empBr);
+	    	document.getElementById('gotopage').style.display='block';
 			//alert(gLineID+"---2");
 
 			//sessionStorage.setItem("LineLogin", doc.data().statuspass);
