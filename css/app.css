@@ -1,7 +1,7 @@
 .clr {
   clear: both;
 }
-input[type=text], select, textarea {
+input[type=text], input[type=number], select, textarea {
   width: 95%;
   padding: 5px;
   border: 1px solid #ccc;
