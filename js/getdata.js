@@ -76,8 +76,8 @@ function FindID(gLineID) {
 	        //statusedit == 2 (ล็อคการแก้ไขรหัสและชื่อ-สกุล)
 	        //StatusConfirm == 9 (ล็อคการเข้าใช้โปรแกรม)
 	        if(doc.data().statusconfirm==9) {
-		        alert("กรุณารอการตรวจสอบข้อมูล/ทำการตรวจสอบความถูกต้องของข้อมูลอีกครั้ง");
 	    		document.getElementById('gotopage').style.display='none';
+		        alert("กรุณารอการตรวจสอบข้อมูล/ทำการตรวจสอบความถูกต้องของข้อมูลอีกครั้ง");
 	        	localStorage.removeItem("LineLogin");
 	        	window.location = "checkprofile.html";
 	        } 
