@@ -1,6 +1,7 @@
 var vLineID = "";
 var vLineName = "";
 var vLinePicture = "";
+var vstatusconfirm = 0;
 document.getElementById('gotopage').style.display='none';
 
 
@@ -70,9 +71,11 @@ function FindID(gLineID) {
 
     db.where('lineID','==',gLineID).get().then((snapshot)=> {
       	snapshot.forEach(doc=> {
-	        var aStatusConfirm = doc.data().statusconfirm;
-	        var aStatusPass = doc.data().statuspass;
-	        var aStatusEdit = doc.data().statusedit;
+	        //var aStatusConfirm = doc.data().statusconfirm;
+	        //var aStatusPass = doc.data().statuspass;
+	        //var aStatusEdit = doc.data().statusedit;
+        	vstatusconfirm = doc.data().statusconfirm;
+
 	        //statusedit == 2 (ล็อคการแก้ไขรหัสและชื่อ-สกุล)
 	        //StatusConfirm == 9 (ล็อคการเข้าใช้โปรแกรม)
 	        if(doc.data().statusconfirm==9) {
@@ -103,7 +106,9 @@ function FindID(gLineID) {
 	    if (!doc.empty) {
 	    	//alert("มีข้อมูลอยู่แล้ว");
 			//alert(sessionStorage.getItem("EmpName")+"----"+gLineID+"7777");
-	    	document.getElementById('gotopage').style.display='block';
+			if(vstatusconfirm!=9) {
+		    	document.getElementById('gotopage').style.display='block';
+			}
 	        //console.log("Document data:", doc[0].data());
 	    } else {
 			//alert("ยังไม่มีข้อมูล");
