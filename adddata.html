@@ -61,7 +61,7 @@
             <center>
             <div style="margin-top:60px;"><img id="pictureUrl" class="imgprofile"></div>
             <div style="color:#0056ff;font-weight: 700; font-size:16px;"><p id="displayName"></p></div>
-            <div class="btn-t2" onclick="ClickCheckLogin()">คลิกที่นี่ ... เพื่อลงทะเบียนเริ่มต้นใช้งาน +11</div>
+            <div class="btn-t2" onclick="ClickCheckLogin()">คลิกที่นี่ ... เพื่อลงทะเบียนเริ่มต้นใช้งาน +12</div>
             <div style="padding-top:25px;color:#555555;">ขอความร่วมมือในการตรวจสอบความถูกต้อง<br>ของข้อมูลของท่านในการเข้าใช้งาน <b>LINE Retail Society</b><br><br>*** ขอสงวนสิทธิ์การเข้าใช้งานเฉพาะชาว Retail เท่านั้น ***</div>
             <div><div id="isLoggedIn" style="color:#ffffff;"></div><div id="userId" style="color:#ffffff;"></div></div>
             </center>
@@ -274,7 +274,7 @@ if(aStatusPass==9) {
         document.getElementById("br").value = doc.data().empBr;
         document.getElementById("address").value = doc.data().empAddress;
         document.getElementById("memo").value = doc.data().memo;
-        alert("aStatusEdit = "+aStatusEdit);
+        //alert("aStatusEdit = "+aStatusEdit);
         if(aStatusEdit!=2) {
 	        document.getElementById('fname').disabled = false;
 	        document.getElementById('empid').disabled = false;
@@ -304,6 +304,7 @@ function ClickSaveProfile() {
   var inpObj = document.getElementById("empid");
   var inpObj1 = document.getElementById("fname");
   var inpObj2 = document.getElementById("memo");
+  var inpObj3 = document.getElementById("phone");
 
   if (!inpObj.checkValidity()) {
     document.getElementById("empid_req").innerHTML = inpObj.validationMessage;
