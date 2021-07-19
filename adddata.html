@@ -61,7 +61,7 @@
             <center>
             <div style="margin-top:60px;"><img id="pictureUrl" class="imgprofile"></div>
             <div style="color:#0056ff;font-weight: 700; font-size:16px;"><p id="displayName"></p></div>
-            <div class="btn-t2" onclick="ClickCheckLogin()">คลิกที่นี่ ... เพื่อลงทะเบียนเริ่มต้นใช้งาน +12</div>
+            <div class="btn-t2" onclick="ClickCheckLogin()">คลิกที่นี่ ... เพื่อลงทะเบียนเริ่มต้นใช้งาน +13</div>
             <div style="padding-top:25px;color:#555555;">ขอความร่วมมือในการตรวจสอบความถูกต้อง<br>ของข้อมูลของท่านในการเข้าใช้งาน <b>LINE Retail Society</b><br><br>*** ขอสงวนสิทธิ์การเข้าใช้งานเฉพาะชาว Retail เท่านั้น ***</div>
             <div><div id="isLoggedIn" style="color:#ffffff;"></div><div id="userId" style="color:#ffffff;"></div></div>
             </center>
@@ -84,8 +84,8 @@
             <div style="color:#0056ff;"><input type="text" id="fname" placeholder="ชื่อ นามสกุล .." required disabled></div>
             <p id="fname_req" style="color:#ff0000;"></p>
             <div>โทรศัพท์มือถือ</div>
-            <div style="color:#0056ff;"><input type="text" name="phone" id="phone" pattern="[+-]?[0-9]" required></div>
-            <p id="phone_req" style="color:#ff0000;"></p>
+            <div style="color:#0056ff;"><input type="text" name="phone" id="phone" pattern="[+-]?[0-9]"></div>
+            <!--<p id="phone_req" style="color:#ff0000;"></p>-->
             <div>สังกัดหน่วยงาน</div>
             <div style="color:#0056ff;">
               <select name="cars" id="br">
@@ -304,7 +304,7 @@ function ClickSaveProfile() {
   var inpObj = document.getElementById("empid");
   var inpObj1 = document.getElementById("fname");
   var inpObj2 = document.getElementById("memo");
-  var inpObj3 = document.getElementById("phone");
+  //var inpObj3 = document.getElementById("phone");
 
   if (!inpObj.checkValidity()) {
     document.getElementById("empid_req").innerHTML = inpObj.validationMessage;
@@ -324,12 +324,14 @@ function ClickSaveProfile() {
     CheckReq = CheckReq+1;
     document.getElementById("memo_req").innerHTML = "";
   } 
+  /*
   if (!inpObj3.checkValidity()) {
     document.getElementById("phone_req").innerHTML = inpObj3.validationMessage;
   } else {
     CheckReq = CheckReq+1;
     document.getElementById("phone_req").innerHTML = "";
   } 
+  */
 
   if(CheckReq==4) {
     if(document.getElementById("fname").value!="") { var a1 = document.getElementById("fname").value; } else { var a1 = "";}
