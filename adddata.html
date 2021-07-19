@@ -53,7 +53,7 @@
   </nav>
 
   <main id="main">
-    <section id="team" class="team section-bg" style="background-color: #ffffff;min-height:450px;">
+    <section id="team" class="team section-bg" style="background-color: #ffffff;">
       <div class="container" id="CheckLogin">
         <div class="section-title" data-aos="fade-up" style="margin-top:10px;">
           <div style="color:#0056ff;font-size:18px;margin-top:-20px;">LINE Retail Society</div>
@@ -78,9 +78,11 @@
           </center>
           <div style="color:#888888;text-align: left;padding:5px 30px;margin-top:15px;font-size:12px;">
             <div>รหัสพนักงาน (ttb bank) *</div>
-            <div style="color:#0056ff;"><input type="text" id="empid" placeholder="รหัสพนักงาน .."></div>
+            <div style="color:#0056ff;"><input type="number" id="empid" placeholder="รหัสพนักงาน .." pattern="[+-]?[0-9]" required></div>
+            <p id="empid_req" style="color:#ff0000;"></p>
             <div>ชื่อ-นามสกุล (ภาษาไทย) *</div>
-            <div style="color:#0056ff;"><input type="text" id="fname" placeholder="ชื่อ นามสกุล .."></div>
+            <div style="color:#0056ff;"><input type="text" id="fname" placeholder="ชื่อ นามสกุล .." required></div>
+            <p id="fname_req" style="color:#ff0000;"></p>
             <div>โทรศัพท์มือถือ</div>
             <div style="color:#0056ff;"><input type="text" id="phone" placeholder="โทรศัพท์มือถือ .."></div>
             <div>สังกัดหน่วยงาน</div>
@@ -104,6 +106,7 @@
             <div>ระบุเหตุผลในการเข้าใช้งาน</div>
             <div style="color:#0056ff;"><textarea id="memo" placeholder="โปรดระบุ .." style="height:100px"></textarea></div>
             <center><div class="btn-t2" onclick="ClickSaveProfile()">บันทึกรายการ</div></center>
+            <div class="clr" style="height: 30px;"></div>
           </div>
         </div>
       </div>
@@ -166,6 +169,7 @@
   document.getElementById('CheckProfile').style.display='none';
   document.getElementById('CheckConfirm').style.display='none';
 
+
     async function main() {
       await liff.init({ liffId: "1655966947-4RRw7M2b" });
       document.getElementById("isLoggedIn").append(liff.isLoggedIn());
@@ -189,25 +193,12 @@
       aLinename = profile.displayName;
     }
 
-
     function openWindow() {
       liff.openWindow({
         url: "https://line.me",
         external: true     
       })
     }
-
-/*
-      aPicture = "https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8";
-      alineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
-      //alineID = "U467089c62b6f6e3d574bf3f140154b7b";
-      aLinename = "Website";
-      document.getElementById("pictureUrl").src = aPicture;
-      document.getElementById("pictureUrl1").src = aPicture;
-      document.getElementById("userId").append(alineID);
-      document.getElementById("displayName").append(aLinename);
-      document.getElementById("displayName1").append(aLinename);
-*/
 
 
 	function ClickCheckLogin() {
@@ -252,7 +243,30 @@
   }
 
 
+/*
+<div style="color:#0056ff;"><input type="number" id="empid" placeholder="รหัสพนักงาน .." pattern="[+-]?[0-9]" required></div>
+<p id="empid_req" style="color:#ff0000;"></p>
+<div>ชื่อ-นามสกุล (ภาษาไทย) *</div>
+<div style="color:#0056ff;"><input type="text" id="fname" placeholder="ชื่อ นามสกุล .." required></div>
+<p id="fname_req" style="color:#ff0000;"></p>
+*/
+
+
   function ClickSaveProfile() {
+    var inpObj = document.getElementById("empid");
+    var inpObj1 = document.getElementById("fname");
+
+    if (!inpObj.checkValidity()) {
+      document.getElementById("empid_req").innerHTML = inpObj.validationMessage;
+    } else {
+      document.getElementById("empid_req").innerHTML = "";
+    } 
+    if (!inpObj1.checkValidity()) {
+      document.getElementById("fname_req").innerHTML = inpObj1.validationMessage;
+    } else {
+      document.getElementById("fname_req").innerHTML = "";
+    } 
+
   	if(document.getElementById("fname").value!="") { var a1 = document.getElementById("fname").value; } else { var a1 = "";}
   	if(document.getElementById("empid").value!="") { var a2 = document.getElementById("empid").value; } else { var a2 = "";}
   	//if(document.getElementById("email").value!="") { var a3 = document.getElementById("email").value; } else { var a3 = "";}
