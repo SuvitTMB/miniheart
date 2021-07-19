@@ -205,35 +205,35 @@ if(aStatusPass==9) {
 */
 
 
-    async function main() {
-      await liff.init({ liffId: "1655966947-4RRw7M2b" });
-      document.getElementById("isLoggedIn").append(liff.isLoggedIn());
-      if(liff.isLoggedIn()) {
-        getUserProfile();
-      } else {
-        liff.login();
-      }
+  async function main() {
+    await liff.init({ liffId: "1655966947-4RRw7M2b" });
+    document.getElementById("isLoggedIn").append(liff.isLoggedIn());
+    if(liff.isLoggedIn()) {
+      getUserProfile();
+    } else {
+      liff.login();
     }
-    main()
+  }
+  main()
 
-    async function getUserProfile() {
-      const profile = await liff.getProfile();
-      document.getElementById("pictureUrl").src = profile.pictureUrl;
-      document.getElementById("pictureUrl1").src = profile.pictureUrl;
-      document.getElementById("userId").append(profile.userId);
-      document.getElementById("displayName").append(profile.displayName);
-      document.getElementById("displayName1").append(profile.displayName);
-      aPicture = profile.pictureUrl;
-      alineID = profile.userId;
-      aLinename = profile.displayName;
-    }
+  async function getUserProfile() {
+    const profile = await liff.getProfile();
+    document.getElementById("pictureUrl").src = profile.pictureUrl;
+    document.getElementById("pictureUrl1").src = profile.pictureUrl;
+    document.getElementById("userId").append(profile.userId);
+    document.getElementById("displayName").append(profile.displayName);
+    document.getElementById("displayName1").append(profile.displayName);
+    aPicture = profile.pictureUrl;
+    alineID = profile.userId;
+    aLinename = profile.displayName;
+  }
 
-    function openWindow() {
-      liff.openWindow({
-        url: "https://line.me",
-        external: true     
-      })
-    }
+  function openWindow() {
+    liff.openWindow({
+      url: "https://line.me",
+      external: true     
+    })
+  }
 
 	function ClickCheckLogin() {
 		document.getElementById('CheckLogin').style.display='none';
