@@ -61,7 +61,7 @@
             <center>
             <div style="margin-top:60px;"><img id="pictureUrl" class="imgprofile"></div>
             <div style="color:#0056ff;font-weight: 700; font-size:16px;"><p id="displayName"></p></div>
-            <div class="btn-t2" onclick="ClickCheckLogin()">คลิกที่นี่ ... เพื่อลงทะเบียนเริ่มต้นใช้งาน +7</div>
+            <div class="btn-t2" onclick="ClickCheckLogin()">คลิกที่นี่ ... เพื่อลงทะเบียนเริ่มต้นใช้งาน +8</div>
             <div style="padding-top:25px;color:#555555;">ขอความร่วมมือในการตรวจสอบความถูกต้อง<br>ของข้อมูลของท่านในการเข้าใช้งาน <b>LINE Retail Society</b><br><br>*** ขอสงวนสิทธิ์การเข้าใช้งานเฉพาะชาว Retail เท่านั้น ***</div>
             <div><div id="isLoggedIn" style="color:#ffffff;"></div><div id="userId" style="color:#ffffff;"></div></div>
             </center>
@@ -266,11 +266,11 @@ if(aStatusPass==9) {
         document.getElementById("br").value = doc.data().empBr;
         document.getElementById("address").value = doc.data().empAddress;
         document.getElementById("memo").value = doc.data().memo;
-        alert("aStatusPass = "+aStatusPass);
-        if(aStatusPass==0) {
+        alert("aStatusEdit = "+aStatusEdit);
+        if(aStatusEdit==0) {
 	        document.getElementById('fname').disabled = false;
 	        document.getElementById('empid').disabled = false;
-        } else if(aStatusPass!=0) {
+        } else if(aStatusEdit!=0) {
 	        document.getElementById('fname').disabled = true;
 	        document.getElementById('empid').disabled = true;
         }
