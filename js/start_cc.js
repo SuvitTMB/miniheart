@@ -13,6 +13,9 @@ var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
 var sLineName = "Website";
 var sLinePicture = "https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8";
 */
+if(sessionStorage.getItem("QStatus2")==9) {
+  window.location = "end_cc.html";
+}
 var Eid = "";
 var sSurvey2 = "0";
 var sTypeDep = "Contact Center";
@@ -558,5 +561,7 @@ function SaveData() {
     QRatio : sRatio,
     QTotal : (getTrue+getFalse)
   });
+  var nut = 9;
+  sessionStorage.setItem("QStatus2", nut);
 }
 

@@ -62,7 +62,7 @@ function CheckLineID() {
       //alert(doc.id+"---"+doc.data().QRatio+"---"+doc.data().QDateTime);
       //sQStatus = doc.QStatus;
       sessionStorage.setItem("Eid", doc.id);
-      sessionStorage.setItem("QStatus", doc.data().QStatus);
+      sessionStorage.setItem("QStatus2", doc.data().QStatus);
       sessionStorage.setItem("QRatio2", doc.data().QRatio);
       sessionStorage.setItem("QDateTime2", doc.data().QDateTime);
       $("#DisplayQRatio2").html(doc.data().QRatio);
