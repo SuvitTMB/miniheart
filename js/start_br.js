@@ -1,5 +1,100 @@
 // Creating questionss and answers
 //*****************************************************************************
+if(sessionStorage.getItem("QStatus1")==9) {
+  window.location = "end_br.html";
+}
+var Eid = "";
+var sSurvey2 = "0";
+//var sTypeDep = "Contact Center";
+var sQStatus = 0;
+var cleararray = "";
+
+
+
+var firebaseConfig = {
+  apiKey: "AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE",
+  authDomain: "retailproject-6f4fc.firebaseapp.com",
+  projectId: "retailproject-6f4fc",
+  storageBucket: "retailproject-6f4fc.appspot.com",
+  messagingSenderId: "653667385625",
+  appId: "1:653667385625:web:a5aed08500de80839f0588",
+  measurementId: "G-9SKTRHHSW9"
+};
+firebase.initializeApp(firebaseConfig);
+var db = firebase.firestore().collection("QuizBR");
+
+
+function CheckLineID() {
+  //alert(sessionStorage.getItem("LineID"));
+  db.where('LineID','==',sessionStorage.getItem("LineID")).get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+      Eid = doc.id;
+      //alert(Eid);
+      //sQStatus = doc.QStatus;
+      //sessionStorage.setItem("Eid", doc.id);
+      //sessionStorage.setItem("QStatus", sQStatus);
+      //alert(Eid);
+    });
+  });
+  db.where('LineID','==',sessionStorage.getItem("LineID")).get().then(function(doc) {
+    if (!doc.empty) {
+      //alert("มีข้อมูลอยู่แล้ว");
+      sQStatus = 1;     
+      sessionStorage.setItem("QStatus1", sQStatus);
+      //document.getElementById("btn1").style.display = "none";
+      //document.getElementById("btn2").style.display = "block";
+      console.log("Document data:", doc[0].data());
+      //SaveNewData();
+    } else {
+      //alert("ยังไม่มีข้อมูล");
+      sQStatus = 9;     
+      sessionStorage.setItem("QStatus1", sQStatus);
+      //document.getElementById("btn1").style.display = "block";
+      //document.getElementById("btn2").style.display = "none";
+      console.log("No such document!");
+      SaveNewData();
+    }
+  }).catch(function(error) {
+      console.log("Error getting document:", error);
+  });  
+}
+CheckLineID();
+
+
+function SaveNewData() {
+  var dateString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
+  var ssQStatus = 1;
+  var sValue = 0;
+    db.add({
+      LineID : sessionStorage.getItem("LineID"),
+      LineName : sessionStorage.getItem("LineName"),
+      LinePicture : sessionStorage.getItem("LinePicture"),
+      EmpID : sessionStorage.getItem("EmpID"),
+      EmpName : sessionStorage.getItem("EmpName"),
+      QStatus : ssQStatus,
+      TypeDep : sessionStorage.getItem("EmpBR"),
+      Q1 : sValue,
+      Q2 : sValue,
+      Q3 : sValue,
+      Q4 : sValue,
+      Q5 : sValue,
+      Q6 : sValue,
+      Q7 : sValue,
+      AnsTrue : sValue,
+      AnsFalse : sValue,
+      QTotal : sValue,
+      QRatio : "0.00%",
+      QDateTime : dateString
+    });  
+    db.where('LineID','==',sessionStorage.getItem("LineID")).get().then((snapshot)=> {
+      snapshot.forEach(doc=> {
+        Eid = doc.id;
+      });
+    });
+}
+
+
+
 var cleararray = "";
 var question1 = {
                   question: "<div><img src='./img/page-1.jpg' class='QuizImg'></div>เป้าหมาย ในการให้บริการ (Service Goal)",
@@ -46,6 +141,7 @@ var question7 = {
 // create an array of objects
 
 var questions = [question1, question2, question3, question4, question5, question6, question7];
+document.getElementById('quizAll').innerHTML = questions.length;
 
 // Initialize variables
 //------------------------------------------------------------------
@@ -66,7 +162,7 @@ var previousIndex = 0;
 var ulTag = document.getElementsByTagName('ul')[0];
 var button = document.getElementById('submit');
 var questionTitle = document.getElementById('question');
-
+var getQ = [];
 //save class name so it can be reused easily
 //if I want to change it, I have to change it one place
 var classHighlight = 'selected';
@@ -154,6 +250,8 @@ $("#DisplayTextResults").html(cleararray);
 
 // Show Correct Answer
 //------------------------------------------------------------------
+var getTrue = 0;
+var getFalse = 0;
 function checkAnswer (){
   // get selected list
   var selectedItem = document.getElementById(tags);
@@ -178,6 +276,7 @@ function checkAnswer (){
     var text_ans = "<div class='text-true'><b>คุณตอบคำถามข้อนี้ได้ถูกต้อง</b><br><font color='#cccccc'>คลิก NEXT QUESTION เพื่อตอบคำถามข้อต่อไป</font></div>";
     $("#DisplayTextResults").html(text_ans);
     console.log(correctAns);
+    getTrue = getTrue+1;
   } else {
     console.log("Wrong! The corrent answer is: "+  currentQuestion.answers[currentQuestion.correct]);
     //change the background of the wrong answer
@@ -189,6 +288,13 @@ function checkAnswer (){
     var text_ans = "<div class='text-false'><b>คุณตอบคำถามข้อนี้ผิด</b><br><font color='#cccccc'>คลิก NEXT QUESTION เพื่อตอบคำถามข้อต่อไป</font></div>";
     $("#DisplayTextResults").html(text_ans);
     console.log(currentQuestion.answers[currentQuestion.correct]);
+    getFalse = getFalse+1;
+  }
+
+  if(tags.substr(3,4)!="") {
+    getQ.push(tags.substr(3,4));
+    console.log(getQ);
+    //alert(getTrue+"--"+getFalse+"--"+getQ);
   }
 
   // Create a next Question button once the answer has been submitted
@@ -242,6 +348,12 @@ function showResults () {
   newScore.appendChild(textScore);
   addHere.appendChild(newScore);
   questionTitle.innerHTML = 'ผลการทดสอบของคุณ<br>คุณทำคะแนนได้ <font color="#ffff00">'+ Math.floor((correctAns/questions.length)*100).toFixed(2) +'%</font><br>ขอขอบคุณสำหรับการทำแบบทดสอบ';
+
+
+  var aResult = Math.floor((correctAns/questions.length)*100).toFixed(2)+"%";
+  sessionStorage.setItem("Survey1", "1");
+  sessionStorage.setItem("Survey1Result", aResult);
+
 
   //use jquary to grab the text of the score
   var score = $(".score").text();
@@ -404,3 +516,22 @@ function confettiEffect (){
 function CloseAll() {
   document.getElementById('id01').style.display='none';
 }
+
+function SaveData() {
+  var sRatio = ((getTrue/(getTrue+getFalse))*100).toFixed(2)+"%";
+  sessionStorage.setItem("QRatio1", sRatio);
+  db.doc(Eid).update({
+    Q1 : Number(getQ[0]),
+    Q2 : Number(getQ[1]),
+    Q3 : Number(getQ[2]),
+    Q4 : Number(getQ[3]),
+    Q5 : Number(getQ[4]),
+    Q6 : Number(getQ[5]),
+    Q7 : Number(getQ[6]),
+    AnsTrue : getTrue,
+    AnsFalse : getFalse,
+    QRatio : sRatio,
+    QTotal : (getTrue+getFalse)
+  });
+  var nut = 9;
+  sessionStorage.setItem("QStatus1", nut);
