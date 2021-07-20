@@ -2,13 +2,13 @@
 //*****************************************************************************
 var cleararray = "";
 var question1 = {
-                  question: "<img src='./img/page-1.jpg' style='width:90%;'><br>เป้าหมาย ในการให้บริการ (Service Goal)",
+                  question: "<div><img src='./img/page-1.jpg' class='QuizImg'></div>เป้าหมาย ในการให้บริการ (Service Goal)",
                   answers: ["ที่ปรึกษาด้านการเงิน", "ใส่ใจดูแลให้คนไทย", "มีสุขภาพทางการเงินที่ดีขึ้น","ถูกทุกข้อ"],
                   correct: 3
                 };
 
 var question2 = {
-                  question: "การให้บริการด้วยหลักการ 4 ใจ ประกอบด้วยอะไรบ้าง",
+                  question: "<div><video width='100%' ontrols='controls' autoplay><source src='https://firebasestorage.googleapis.com/v0/b/retailproject-6f4fc.appspot.com/o/vdo%2FFWB-PowerPoint.mp4?alt=media&token=b11f248e-b6d2-4eeb-9e3a-47fc61baee0a' type='video/mp4'></video></div>การให้บริการด้วยหลักการ 4 ใจ ประกอบด้วยอะไรบ้าง",
                   answers: ['เข้าใจ ใส่ใจ สุดใจ เห็นใจ', 'เข้าใจ ใส่ใจ สุดใจ จริงใจ', 'เข้าใจ ไว้ใจ สุดใจ เห็นใจ', 'เข้าใจ ไว้ใจ สุดใจ จริงใจ'],
                   correct: 1
                 };
