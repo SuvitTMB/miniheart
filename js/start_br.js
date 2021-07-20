@@ -1,7 +1,8 @@
 // Creating questionss and answers
 //*****************************************************************************
 if(sessionStorage.getItem("QStatus1")==9) {
-  window.location = "end_br.html";
+  //window.location = "end_br.html";
+  alert("Q==9");
 }
 var Eid = "";
 var sSurvey2 = "0";
