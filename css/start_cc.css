@@ -164,7 +164,7 @@ canvas{
 }
 .quiz-question {
   width:90%; text-align: center; color:#ffffff;font-size: 17px; font-weight: 700px; padding-top:10px;
-  line-height: 1.3em;
+  line-height: 1.3em; padding-bottom: 25px;
 }
 .quiz-number {
   width:100%;padding-top:20px; color:#000000; font-size:12px;
