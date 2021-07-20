@@ -1,16 +1,26 @@
 // Creating questionss and answers
 //*****************************************************************************
 if(sessionStorage.getItem("QStatus1")==9) {
-  //window.location = "end_br.html";
-  alert("Q==9");
+  window.location = "end_br.html";
+  //alert("Q==9");
 }
 var Eid = "";
-var sSurvey2 = "0";
+var sSurvey1 = "0";
 //var sTypeDep = "Contact Center";
-var sQStatus = 0;
+var sQStatus1 = 0;
 var cleararray = "";
 
 
+
+/*
+var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
+var sLineName = "Website";
+var sLinePicture = "https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8";
+sessionStorage.setItem("LineID", sLineID);
+sessionStorage.setItem("LineName", sLineName);
+sessionStorage.setItem("LinePicture", sLinePicture);
+sessionStorage.setItem("Survey1", sSurvey1);
+*/
 
 var firebaseConfig = {
   apiKey: "AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE",
@@ -26,7 +36,7 @@ var db = firebase.firestore().collection("QuizBR");
 
 
 function CheckLineID() {
-  //alert(sessionStorage.getItem("LineID"));
+  alert(sessionStorage.getItem("LineID"));
   db.where('LineID','==',sessionStorage.getItem("LineID")).get().then((snapshot)=> {
     snapshot.forEach(doc=> {
       Eid = doc.id;
@@ -41,7 +51,7 @@ function CheckLineID() {
     if (!doc.empty) {
       //alert("มีข้อมูลอยู่แล้ว");
       sQStatus = 1;     
-      sessionStorage.setItem("QStatus1", sQStatus);
+      sessionStorage.setItem("QStatus1", sQStatus1);
       //document.getElementById("btn1").style.display = "none";
       //document.getElementById("btn2").style.display = "block";
       console.log("Document data:", doc[0].data());
@@ -49,7 +59,7 @@ function CheckLineID() {
     } else {
       //alert("ยังไม่มีข้อมูล");
       sQStatus = 9;     
-      sessionStorage.setItem("QStatus1", sQStatus);
+      sessionStorage.setItem("QStatus1", sQStatus1);
       //document.getElementById("btn1").style.display = "block";
       //document.getElementById("btn2").style.display = "none";
       console.log("No such document!");
@@ -318,9 +328,11 @@ function checkAnswer (){
 //------------------------------------------------------------------
 function showResults () {
   //alert(correctAns+"--"+questions.length);
-  $("#DisplayTextResults").html(cleararray);
+  //$("#DisplayTextResults").html(cleararray);
   document.getElementById("Message").style.display = "none";
   document.getElementById("ShowLink").style.display = "block";
+  SaveData();
+
 
   //deleting page number
   document.getElementById('pages').innerHTML='';
