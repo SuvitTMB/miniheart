@@ -36,7 +36,7 @@ var db = firebase.firestore().collection("QuizBR");
 
 
 function CheckLineID() {
-  alert(sessionStorage.getItem("LineID"));
+  //alert(sessionStorage.getItem("LineID"));
   db.where('LineID','==',sessionStorage.getItem("LineID")).get().then((snapshot)=> {
     snapshot.forEach(doc=> {
       Eid = doc.id;
