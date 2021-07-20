@@ -2,7 +2,7 @@
 //*****************************************************************************
 var cleararray = "";
 var question1 = {
-                  question: "<img src='./img/page-1.jpg' style='height:220px;'><br>เป้าหมาย ในการให้บริการ (Service Goal)",
+                  question: "<img src='./img/page-1.jpg' style='width:90%;'><br>เป้าหมาย ในการให้บริการ (Service Goal)",
                   answers: ["ที่ปรึกษาด้านการเงิน", "ใส่ใจดูแลให้คนไทย", "มีสุขภาพทางการเงินที่ดีขึ้น","ถูกทุกข้อ"],
                   correct: 3
                 };
