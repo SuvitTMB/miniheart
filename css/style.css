@@ -468,3 +468,12 @@ body {
   /*border: 5px solid #ffffff;**/
   border-radius: 50%;
 }
+.container-max {
+  width:100% !important;
+}
+.QuizImg {
+  max-width:350px;width:100%;margin-bottom: 10px; border-radius: 10px; border:2px solid #ffffff;
+}
+.QuizIntro {
+  max-width:300px;width: 100%; margin-top:10px;margin-bottom: 10px; border-radius: 20px;
+}
