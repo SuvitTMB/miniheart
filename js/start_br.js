@@ -517,6 +517,7 @@ function CloseAll() {
   document.getElementById('id01').style.display='none';
 }
 
+
 function SaveData() {
   var sRatio = ((getTrue/(getTrue+getFalse))*100).toFixed(2)+"%";
   sessionStorage.setItem("QRatio1", sRatio);
