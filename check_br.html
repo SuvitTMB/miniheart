@@ -21,6 +21,15 @@
   <link href='css/w3.css' rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <script src="https://static.line-scdn.net/liff/edge/versions/2.8.1/sdk.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+  <style type="text/css">
+    .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+      padding:3px;
+    }    
+  </style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
@@ -38,7 +47,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>                        
         </button>
-        <a class="navbar-brand" href="#myPage">Retail Society</a>
+        <a class="navbar-brand" href="mainpage.html">Retail Society</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
@@ -58,30 +67,27 @@
         <br>สำหรับเจ้าหน้าที่สาขา</div>
     </div>
 
-    <div style="padding-bottom: 30px;width:80%;">
-      <div class="NameLine" style="color:#0056ff;font-size: 16px;">ใครทำแล้วบ้าง</div>
-      <div id="DisplayImg"></div>
-    </div>
+    <main id="main">
+      <section id="team" class="team section-bg" style="background-color: #ffffff;margin-top:-40px;">
+        <div class="container" style="width:95%; margin:auto;">
+        <div style="margin-top:15px;padding:10px;color:#0056ff;"><center><b>แสดงข้อมูลผลการทดสอบความรู้</b> | <span class="LoadCSV" onclick="export2csv()">Download CSV File</span></center></div>
+        <table class="table table-bordered" id="tbresult" style="padding:2px;">
+          <tr>
+            <th width="10%">No</th>
+            <th width="35%">Line Name</th>
+            <th width="40%">Date - Time</th>
+            <th width="25%">Results</th>
+          </tr>
+        </table>
+        </div>
+      </section>
+    </main>    
+    <div class="btn-t2" style="margin-top:30px;min-width:80px !important;" onclick="window.location.href='intro_cc.html';">กลับไปเมนูก่อนหน้า</div>
     <div class="clr"></div>
-<!--
-    <div style="width:100%;"><center><img src="./img/quiz_cc@.jpg" style="width:75%; border-radius: 10px;"></center></div>
-    <div style="max-width:400px; width:80%;margin-left:auto; margin-right: auto; text-align: left;margin-top:10px; color:#666666;">
-      <ul>
-        <li>แบบสอบถามนี้มีวัตถุประสงค์เพื่อวัดความเข้าใจเกี่ยวกับหลักการการให้บริการเท่านั้น</li>
-        <li>พนักงานสามารถเข้าทำแบบทดสอบได้เพียงครั้งเดียวเท่านั้น</li>
-        <li>ผู้ตอบแบบสอบถามจะต้องแจ้งรหัสพนักงานก่อนเข้าทำการตอบแบบสอบถาม</li>
-        <li>เมื่อเข้าสู่แบบทดสอบแล้วจะต้องทำให้แบบสอบถามให้ครบทุกข้อ หากออกจากระบบก่อนจะได้ 0 คะแนน</li>
-      </ul>
-    </div>
--->
-    <div class="btn-t2" style="margin-top:30px;min-width:80px !important;" onclick="window.location.href='intro_br.html';">กลับไปเมนูก่อนหน้า</div>
-    <!--
-    <div class="btn-t1" style="margin-top:30px;min-width:80px !important;" onclick="window.location.href='start_cc.html';">เริ่มทำการทดสอบ</div>
-    -->
   </center>
 </div>
 <div class="clr"></div>
-<div style="height: 80px"></div>
+<div style="height: 40px"></div>
 
 
 <script  src="js/check_br.js"></script>
