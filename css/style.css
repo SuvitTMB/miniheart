@@ -189,7 +189,7 @@
   font-size: 13px !important;
 }
 .ldp {
-  width:100%; height:350px;
+  width:100%; height:280px;
   margin-top:40px;
 }
 .ldp1 {
@@ -386,7 +386,7 @@ body {
   font-size: 16px; font-weight: 600; color:#f68b1f; 
 }
 .box-4h {
-  float: left;width:47%;padding:15px 5px;border-radius: 10px; background-color: #eef1f9;margin:5px;height:210px;
+  float: left;width:46%;padding:15px 5px;border-radius: 10px; background-color: #eef1f9;margin:5px;height:210px;
   border:1px solid #eef1f9;
 }
 .h3div {
