@@ -61,11 +61,6 @@ async function getUserProfile() {
   sLineID = profile.userId;
   sLineName = profile.displayName;
   sLinePicture = profile.pictureUrl;
-  //document.getElementById("pictureUrl").src = profile.pictureUrl;
-  //document.getElementById("pictureUrl1").src = profile.pictureUrl;
-  //document.getElementById("userId").append(profile.userId);
-  //document.getElementById("displayName").append(profile.displayName);
-  //document.getElementById("displayName1").append(profile.displayName);
 }
 
 
