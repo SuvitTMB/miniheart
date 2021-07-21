@@ -7,9 +7,13 @@ var arrayIN = [];
 var arrayNEW = [];
 
 
-var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
-var sLineName = "Website";
-var sLinePicture = "https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8";
+var sLineID = "";
+var sLineName = "";
+var sLinePicture = "";
+
+//var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
+//var sLineName = "Website";
+//var sLinePicture = "https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8";
 //sessionStorage.setItem("LineID", sLineID);
 //sessionStorage.setItem("LineName", sLineName);
 //sessionStorage.setItem("LinePicture", sLinePicture);
@@ -33,10 +37,46 @@ var db = firebase.firestore();
 
 
 $(document).ready(function () {
+  main()
   DisplayChat();
   //alert("Array IN : "+arrayIN.length);
   //LoadID();
 });
+
+
+
+async function main() {
+  await liff.init({ liffId: "1655966947-5rJYErwX" });
+  document.getElementById("isLoggedIn").append(liff.isLoggedIn());
+  if(liff.isLoggedIn()) {
+    getUserProfile();
+  } else {
+    liff.login();
+  }
+}
+
+
+async function getUserProfile() {
+  const profile = await liff.getProfile();
+  sLineID = profile.userId;
+  sLineName = profile.displayName;
+  sLinePicture = profile.pictureUrl;
+  //document.getElementById("pictureUrl").src = profile.pictureUrl;
+  //document.getElementById("pictureUrl1").src = profile.pictureUrl;
+  //document.getElementById("userId").append(profile.userId);
+  //document.getElementById("displayName").append(profile.displayName);
+  //document.getElementById("displayName1").append(profile.displayName);
+}
+
+
+function openWindow() {
+  liff.openWindow({
+    url: "https://line.me",
+    external: true     
+  })
+}
+
+
 
 
 const loadmore = document.querySelector('#loadmore');
