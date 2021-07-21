@@ -63,6 +63,7 @@ async function getUserProfile() {
 }
 main()
 
+  alert(sLineID+"==="+sLineName+"==="+sLinePicture);
 
 function openWindow() {
   liff.openWindow({
