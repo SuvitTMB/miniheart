@@ -36,12 +36,11 @@ var db = firebase.firestore();
 
 
 
-$(document).ready(function () {
-  main()
+//$(document).ready(function () {
   DisplayChat();
   //alert("Array IN : "+arrayIN.length);
   //LoadID();
-});
+//});
 
 
 
@@ -62,6 +61,7 @@ async function getUserProfile() {
   sLineName = profile.displayName;
   sLinePicture = profile.pictureUrl;
 }
+main()
 
 
 function openWindow() {
