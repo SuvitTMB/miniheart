@@ -5,6 +5,7 @@ var Eid = "";
 var cleararray = "";
 var arrayIN = [];
 var arrayNEW = [];
+var qInterval;
 
 
 var sLineID = "";
@@ -35,14 +36,10 @@ firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 
 
-
-//$(document).ready(function () {
-//  main()
-//  DisplayChat();
-  //alert("Array IN : "+arrayIN.length);
-  //LoadID();
-//});
-
+$(document).ready(function () {
+  main();
+  DisplayChat();
+});
 
 
 async function main() {
@@ -54,12 +51,11 @@ async function main() {
     liff.login();
   }
 }
-main()
 
 
 async function getUserProfile() {
   const profile = await liff.getProfile();
-  document.getElementById("userId").append(profile.userId);
+  //document.getElementById("userId").append(profile.userId);
   sLineID = profile.userId;
   sLineName = profile.displayName;
   sLinePicture = profile.pictureUrl;
@@ -75,8 +71,6 @@ function openWindow() {
 
 
 
-DisplayChat();
-
 const loadmore = document.querySelector('#loadmore');
 let currentItems = 8;
 loadmore.addEventListener('click', (e) => {
@@ -87,7 +81,6 @@ loadmore.addEventListener('click', (e) => {
         }
     }
     currentItems += 8;
-
     // Load more button will be hidden after list fully loaded
     if (currentItems >= elementList.length) {
         event.target.style.display = 'none';
@@ -97,38 +90,32 @@ loadmore.addEventListener('click', (e) => {
 
 
 var table = document.querySelector('#tbresult');
+var str = "";
 var arrayIN = [];
+
 function DisplayChat() {
   str = "";
   //$("#DisplayMemo").remove();
   document.getElementById("TextMamo").innerHTML = "";   
   document.getElementById("DisplayMemo").innerHTML = "";   
-  //db.orderBy("state").orderBy("PostTimeStamp", "desc").limit(3).get().then((snapshot)=> {
   db.collection("Bento").orderBy("PostTimeStamp", "desc").get().then((snapshot)=> {
-  //db.orderBy("state").orderBy("PostTimeStamp", "desc").get().then((snapshot)=> {
     snapshot.forEach(doc=>{
-      //arrayIN.push(doc.id);
-      //console.log(doc);
       ShowChat(doc);
     });
-    //alert(i);
   });
-  //alert(arrayIN.length);
-  //console.log(doc);
-  $("#DisplayMemo").html(str);    
-  console.log(arrayIN);
-  //var ShowResults = arrayIN.length;
-  //alert(ShowResults);
-
-  
+  DisplayLog();
 }
-/*
-        <div class="message-feed media"><div class="pull-left">
-        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="img-avatar"></div>
-        <div class="media-body"><div class="mf-content">memo</div>
-        <small class="mf-date"><i class="fa fa-clock-o"></i> datetime</small></div></div>
-*/
-var str = "";
+
+
+
+function DisplayLog() {
+  timecountdown();
+  console.log(arrayIN.length);
+  $("#DisplayMemo").html(str);    
+}
+
+
+
 function ShowChat(doc) {
   i = i+1;
   arrayIN.push(doc.id);
@@ -178,5 +165,64 @@ function CheckMemo() {
 }
 
 
+
+
+function CheckUpdate() {
+  CheckLastTimeUpdate = "";
+  //alert("stoptime : "+CheckLastTime);
+  console.log(CheckLastTime);
+
+
+  db.collection("Bento").where('PostTimeStamp','>',CheckLastTime).get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+      NewChat(doc);
+    });
+  });
+  timecountdown();
+}
+
+
+
+
+var str = "";
+function NewChat(doc) {
+  var str1 = "";
+  if(CheckLastTimeUpdate=="") { 
+    CheckLastTimeUpdate = "1";
+    CheckLastTime = doc.data().PostTimeStamp; 
+  }
+  if(sLineID==doc.data().LineID) {
+    str1+='<div class="list-element"><div class="message-feed right" id="'+i+'"><div class="pull-right">';
+    str1+='<img src="'+ doc.data().LinePicture +'" class="img-avatar"></div>';
+    str1+='<div class="media-body"><div class="mf-content">'+ doc.data().PostMemo +'</div>';
+    str1+='<small class="mf-date"><i class="fa fa-clock-o"></i> '+ doc.data().PostTimeStamp +'</small></div></div></div>';
+  } else {
+    str1+='<div class="list-element"><div class="message-feed media" id="'+i+'"><div class="pull-left">';
+    str1+='<img src="'+ doc.data().LinePicture +'" class="img-avatar"></div>';
+    str1+='<div class="media-body"><div class="mf-content">'+ doc.data().PostMemo +'</div>';
+    str1+='<small class="mf-date"><i class="fa fa-clock-o"></i> '+ doc.data().PostTimeStamp +'</small></div></div></div>';
+  }
+  str = str1+str;
+  $("#DisplayMemo").html(str); 
+  //console.log(arrayIN.length);
+}
+
+
+function timecountdown() {
+  var timeleft = MaxTime;
+    qInterval = setInterval(function(){
+    if(timeleft <= 0) {
+      stopcountdown();
+      CheckUpdate();
+      //DisplayHeart();
+    }
+    },10000);
+}
+
+
+
+function stopcountdown() { 
+    clearInterval(qInterval);
+}
 
 
