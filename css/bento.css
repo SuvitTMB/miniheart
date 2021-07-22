@@ -115,7 +115,7 @@
 .msb-reply {
     box-shadow: 0 -5px 20px -5px #fff;
     position: relative;
-    margin-top: 20px;
+    margin-top: 30px;
     /*border-top: 1px solid #eee;*/
     background: #f68b1f;
 }
@@ -129,9 +129,9 @@
     margin: 10px 15px;
     padding:5px 10px;
     resize: none;
-    height: 52px;
+    height: 42px;
     color:#0056ff;
-    background: #f5e5d5;
+    background: #d3dadf;
     border-radius: 5px;
 }
 
@@ -254,4 +254,10 @@
 
 .success:before {
   content: "มีข้อความใหม่";
+}
+.LineName {
+    font-size:11px; color:#002d63; padding-bottom: 3px;
+}
+.fa:hover {
+    color: #f68b1f; 
 }
