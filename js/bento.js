@@ -66,8 +66,6 @@ async function getUserProfile() {
 }
 
 
-  alert(sLineID+"==="+sLineName+"==="+sLinePicture);
-
 function openWindow() {
   liff.openWindow({
     url: "https://line.me",
