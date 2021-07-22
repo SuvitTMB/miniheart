@@ -166,7 +166,7 @@ function CheckMemo() {
   str1+='<small class="mf-date"><i class="fa fa-clock-o"></i> '+ dateString +'</small></div></div>';
 
   str = str1+str;
-  $("#DisplayMemo").html(str); 
+  //$("#DisplayMemo").html(str); 
   $("#TextMamo").val('');
 }
 
