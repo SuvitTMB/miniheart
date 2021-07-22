@@ -162,7 +162,7 @@ function CheckMemo() {
 
   str1+='<div class="message-feed right" id="'+i+'"><div class="pull-right">';
   str1+='<img src="'+ sLinePicture +'" class="img-avatar"></div>';
-  str1+='<div class="media-body"><div class="LineName">'+ LineName +'</div><div class="mf-content">'+ document.getElementById("TextMamo").value +'</div>';
+  str1+='<div class="media-body"><div class="LineName">'+ sLineName +'</div><div class="mf-content">'+ document.getElementById("TextMamo").value +'</div>';
   str1+='<small class="mf-date"><i class="fa fa-clock-o"></i> '+ dateString +'</small></div></div>';
 
   str = str1+str;
