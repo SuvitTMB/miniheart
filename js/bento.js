@@ -223,7 +223,7 @@ function timecountdown() {
       CheckUpdate();
       //DisplayHeart();
     }
-    },10000);
+    },15000);
 }
 
 
