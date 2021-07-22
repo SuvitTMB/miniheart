@@ -229,7 +229,7 @@ function timecountdown() {
       CheckUpdate();
       //DisplayHeart();
     }
-    },15000);
+    },12000);
 }
 
 
