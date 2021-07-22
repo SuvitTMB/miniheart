@@ -9,6 +9,8 @@ var arrayIN = [];
 var CountIN = 0;
 var MaxTime = 0;
 var qInterval;
+var CheckLastTime = "";
+var CheckLastTimeUpdate = "";
 
 
 var sLineID = "";
@@ -92,7 +94,7 @@ loadmore.addEventListener('click', (e) => {
 
 
 
-var table = document.querySelector('#tbresult');
+//var table = document.querySelector('#tbresult');
 var str = "";
 var arrayIN = [];
 
@@ -122,6 +124,7 @@ function DisplayLog() {
 function ShowChat(doc) {
   i = i+1;
   arrayIN.push(doc.id);
+  if(CheckLastTime=="") { CheckLastTime = doc.data().PostTimeStamp; }
   if(sLineID==doc.data().LineID) {
     str+='<div class="list-element"><div class="message-feed right" id="'+i+'"><div class="pull-right">';
     str+='<img src="'+ doc.data().LinePicture +'" class="img-avatar"></div>';
@@ -215,7 +218,7 @@ function timecountdown() {
   var timeleft = MaxTime;
     qInterval = setInterval(function(){
     if(timeleft <= 0) {
-      //alert("Load");
+      alert("Load");
       stopcountdown();
       CheckUpdate();
       //DisplayHeart();
