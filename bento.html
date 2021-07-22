@@ -116,8 +116,10 @@
 
   <div class="navbar1" style="height: 90px;background: none;">
     <div class="msb-reply">
-      <textarea id="TextMamo" placeholder="พิมพ์ข้อความของคุณที่นี่..."></textarea>
-      <button style="background: #f68b1f;" onclick="CheckMemo()"><i class="fa fa-paper-plane-o"></i></button>
+      <div style="background: #f68b1f;">
+        <textarea id="TextMamo" placeholder="พิมพ์ข้อความของคุณที่นี่..."></textarea>
+        <button style="background: #f68b1f;" onclick="CheckMemo()"><i class="fa fa-paper-plane-o" style="position: absolute; top:25px;left:17px;"></i></button>
+      </div>
     </div>
   </div>
   <nav class="navbar navbar-default navbar-fixed-top">
@@ -137,13 +139,11 @@
   <div class="notify"><span id="notifyType" class=""></span></div>
 
   <div class="container bootstrap snippets bootdey">
-    <div style="height: 50px;margin-top:-30px;">
-      <div style="z-index: 10000 !important;">
-        <center>
-          <div class="btn-t1" style="margin-top:10px;font-size:11px;" onclick="window.open('https://forms.gle/SEskSsbUpfWxEwJK8');">อิ่มแล้วแชร์</div>
-          <div class="btn-t1" style="margin-top:10px;font-size:11px;" onclick="window.open('https://drive.google.com/drive/folders/1t0fSHodk9ntgqriuc5MnIi28RPd7mFVRgoajr_PUzGc29nmjXOaq5T8rvdB2UILfibD_X0ga?usp=sharing');">ดูภาพกิจกรรม</div>
-        </center>
-      </div>
+    <div style="height: 50px;margin-top:-30px;position: relative;">
+      <center>
+        <div class="btn-t1" style="margin-top:10px;font-size:11px;" onclick="window.open('https://forms.gle/SEskSsbUpfWxEwJK8');">อิ่มแล้วแชร์</div>
+        <div class="btn-t1" style="margin-top:10px;font-size:11px;" onclick="window.open('https://drive.google.com/drive/folders/1t0fSHodk9ntgqriuc5MnIi28RPd7mFVRgoajr_PUzGc29nmjXOaq5T8rvdB2UILfibD_X0ga?usp=sharing');">ดูภาพกิจกรรม</div>
+      </center>
     </div>
     <div class="tile tile-alt" id="messages-main">
       <div class="message-feed media" style="margin-bottom: 60px;">
