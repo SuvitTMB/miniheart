@@ -166,7 +166,7 @@ function CheckMemo() {
   str1+='<small class="mf-date"><i class="fa fa-clock-o"></i> '+ dateString +'</small></div></div>';
 
   str = str1+str;
-  //$("#DisplayMemo").html(str); 
+  $("#DisplayMemo").html(str); 
   $("#TextMamo").val('');
 }
 
@@ -197,12 +197,12 @@ function NewChat(doc) {
     CheckLastTimeUpdate = "1";
     CheckLastTime = doc.data().PostTimeStamp; 
   }
-  if(sLineID==doc.data().LineID) {
-    str1+='<div class="list-element"><div class="message-feed right" id="'+i+'"><div class="pull-right">';
-    str1+='<img src="'+ doc.data().LinePicture +'" class="img-avatar"></div>';
-    str1+='<div class="media-body"><div class="mf-content">'+ doc.data().PostMemo +'</div>';
-    str1+='<small class="mf-date"><i class="fa fa-clock-o"></i> '+ doc.data().PostTimeStamp +'</small></div></div></div>';
-  } else {
+  if(sLineID!=doc.data().LineID) {
+    //str1+='<div class="list-element"><div class="message-feed right" id="'+i+'"><div class="pull-right">';
+    //str1+='<img src="'+ doc.data().LinePicture +'" class="img-avatar"></div>';
+    //str1+='<div class="media-body"><div class="mf-content">'+ doc.data().PostMemo +'</div>';
+    //str1+='<small class="mf-date"><i class="fa fa-clock-o"></i> '+ doc.data().PostTimeStamp +'</small></div></div></div>';
+  //} else {
     str1+='<div class="list-element"><div class="message-feed media" id="'+i+'"><div class="pull-left">';
     str1+='<img src="'+ doc.data().LinePicture +'" class="img-avatar"></div>';
     str1+='<div class="media-body"><div class="mf-content">'+ doc.data().PostMemo +'</div>';
