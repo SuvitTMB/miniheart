@@ -115,22 +115,24 @@
 .msb-reply {
     box-shadow: 0 -5px 20px -5px #fff;
     position: relative;
-    margin-top: 30px;
+    margin-top: 20px;
     /*border-top: 1px solid #eee;*/
-    background: #e8f1fa;
+    background: #f68b1f;
 }
 .four-zero, .lc-block {
     box-shadow: 0 1px 11px rgba(0, 0, 0, .27);
 }
 .msb-reply textarea {
-    width: 100%;
+    width: 94%;
     font-size: 13px;
     border: 0;
-    padding: 10px 15px;
+    margin: 10px 15px;
+    padding:5px 10px;
     resize: none;
-    height: 70px;
+    height: 52px;
     color:#0056ff;
-    background: 0 0;
+    background: #f5e5d5;
+    border-radius: 5px;
 }
 
 .msb-reply textarea :hover {
@@ -222,4 +224,34 @@
 }    
 .media {
     margin-top:5px;
+}
+.notify {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 0;
+  box-sizing: border-box;
+  color: white;
+  text-align: center;
+  background: #03bf6d;
+  overflow: hidden;
+  box-sizing: border-box;
+  -webkit-transition: all ease 0.4s;
+  -moz-transition: all ease 0.4s;
+  -ms-transition: all ease 0.4s;
+  -o-transition: all ease 0.4s;
+  transition: all ease 0.4s;
+}
+
+#notifyType:before {
+  display: block;
+  margin-top: 15px;
+}
+
+.notify.active {
+  height: 50px;
+}
+
+.success:before {
+  content: "มีข้อความใหม่";
 }
