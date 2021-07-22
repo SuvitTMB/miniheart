@@ -218,7 +218,7 @@ function timecountdown() {
   var timeleft = MaxTime;
     qInterval = setInterval(function(){
     if(timeleft <= 0) {
-      alert("Load");
+      //alert("Load");
       stopcountdown();
       CheckUpdate();
       //DisplayHeart();
