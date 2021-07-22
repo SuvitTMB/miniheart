@@ -5,6 +5,9 @@ var Eid = "";
 var cleararray = "";
 var arrayIN = [];
 var arrayNEW = [];
+var arrayIN = [];
+var CountIN = 0;
+var MaxTime = 0;
 var qInterval;
 
 
