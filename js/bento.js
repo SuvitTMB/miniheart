@@ -128,12 +128,12 @@ function ShowChat(doc) {
   if(sLineID==doc.data().LineID) {
     str+='<div class="list-element"><div class="message-feed right" id="'+i+'"><div class="pull-right">';
     str+='<img src="'+ doc.data().LinePicture +'" class="img-avatar"></div>';
-    str+='<div class="media-body"><div class="mf-content">'+ doc.data().PostMemo +'</div>';
+    str+='<div class="media-body"><div class="LineName">'+doc.data().LineName +'</div><div class="mf-content">'+ doc.data().PostMemo +'</div>';
     str+='<small class="mf-date"><i class="fa fa-clock-o"></i> '+ doc.data().PostTimeStamp +'</small></div></div></div>';
   } else {
     str+='<div class="list-element"><div class="message-feed media" id="'+i+'"><div class="pull-left">';
     str+='<img src="'+ doc.data().LinePicture +'" class="img-avatar"></div>';
-    str+='<div class="media-body"><div class="mf-content">'+ doc.data().PostMemo +'</div>';
+    str+='<div class="media-body"><div class="LineName">'+doc.data().LineName +'</div><div class="mf-content">'+ doc.data().PostMemo +'</div>';
     str+='<small class="mf-date"><i class="fa fa-clock-o"></i> '+ doc.data().PostTimeStamp +'</small></div></div></div>';
   }
     $("#DisplayMemo").html(str); 
@@ -162,7 +162,7 @@ function CheckMemo() {
 
   str1+='<div class="message-feed right" id="'+i+'"><div class="pull-right">';
   str1+='<img src="'+ sLinePicture +'" class="img-avatar"></div>';
-  str1+='<div class="media-body"><div class="mf-content">'+ document.getElementById("TextMamo").value +'</div>';
+  str1+='<div class="media-body"><div class="LineName">'+doc.data().LineName +'</div><div class="mf-content">'+ document.getElementById("TextMamo").value +'</div>';
   str1+='<small class="mf-date"><i class="fa fa-clock-o"></i> '+ dateString +'</small></div></div>';
 
   str = str1+str;
@@ -177,8 +177,6 @@ function CheckUpdate() {
   CheckLastTimeUpdate = "";
   //alert("stoptime : "+CheckLastTime);
   console.log(CheckLastTime);
-
-
   db.collection("Bento").where('PostTimeStamp','>',CheckLastTime).get().then((snapshot)=> {
     snapshot.forEach(doc=> {
       NewChat(doc);
@@ -208,7 +206,7 @@ function NewChat(doc) {
   if(sLineID!=doc.data().LineID) {
     str1+='<div class="list-element"><div class="message-feed media" id="'+i+'"><div class="pull-left">';
     str1+='<img src="'+ doc.data().LinePicture +'" class="img-avatar"></div>';
-    str1+='<div class="media-body"><div class="mf-content">'+ doc.data().PostMemo +'</div>';
+    str1+='<div class="media-body"><div class="LineName">'+doc.data().LineName +'</div><div class="mf-content">'+ doc.data().PostMemo +'</div>';
     str1+='<small class="mf-date"><i class="fa fa-clock-o"></i> '+ doc.data().PostTimeStamp +'</small></div></div></div>';
   }
   str = str1+str;
