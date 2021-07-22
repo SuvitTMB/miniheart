@@ -36,12 +36,12 @@ var db = firebase.firestore();
 
 
 
-$(document).ready(function () {
-  main()
-  DisplayChat();
+//$(document).ready(function () {
+//  main()
+//  DisplayChat();
   //alert("Array IN : "+arrayIN.length);
   //LoadID();
-});
+//});
 
 
 
@@ -54,10 +54,12 @@ async function main() {
     liff.login();
   }
 }
+main()
 
 
 async function getUserProfile() {
   const profile = await liff.getProfile();
+  document.getElementById("userId").append(profile.userId);
   sLineID = profile.userId;
   sLineName = profile.displayName;
   sLinePicture = profile.pictureUrl;
@@ -75,6 +77,7 @@ function openWindow() {
 
 
 
+DisplayChat();
 
 const loadmore = document.querySelector('#loadmore');
 let currentItems = 8;
