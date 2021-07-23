@@ -477,3 +477,6 @@ body {
 .QuizIntro {
   max-width:300px;width: 100%; margin-top:10px;margin-bottom: 10px; border-radius: 20px;
 }
+.ButtonMsg {
+  height: 50px;margin-top:-30px;position: relative;background-color: #365477;border-top:1px solid #fff;
+}
