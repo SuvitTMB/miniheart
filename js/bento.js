@@ -11,6 +11,8 @@ var MaxTime = 0;
 var qInterval;
 var CheckLastTime = "";
 var CheckLastTimeUpdate = "";
+var dateString = "";
+var sGroupChart = "Bento";
 
 
 var sLineID = "";
@@ -129,12 +131,12 @@ function ShowChat(doc) {
     str+='<div class="list-element"><div class="message-feed right" id="'+i+'"><div class="pull-right">';
     str+='<img src="'+ doc.data().LinePicture +'" class="img-avatar"></div>';
     str+='<div class="media-body"><div class="LineName">'+doc.data().LineName +'</div><div class="mf-content">'+ doc.data().PostMemo +'</div>';
-    str+='<small class="mf-date"><i class="fa fa-clock-o"></i> '+ doc.data().PostTimeStamp +'</small></div></div></div>';
+    str+='<small class="mf-date"><i class="fa fa-clock-o"></i> '+ doc.data().PostDate +'</small></div></div></div>';
   } else {
     str+='<div class="list-element"><div class="message-feed media" id="'+i+'"><div class="pull-left">';
     str+='<img src="'+ doc.data().LinePicture +'" class="img-avatar"></div>';
     str+='<div class="media-body"><div class="LineName">'+doc.data().LineName +'</div><div class="mf-content">'+ doc.data().PostMemo +'</div>';
-    str+='<small class="mf-date"><i class="fa fa-clock-o"></i> '+ doc.data().PostTimeStamp +'</small></div></div></div>';
+    str+='<small class="mf-date"><i class="fa fa-clock-o"></i> '+ doc.data().PostDate +'</small></div></div></div>';
   }
     $("#DisplayMemo").html(str); 
   //console.log(arrayIN.length);
@@ -144,18 +146,21 @@ function ShowChat(doc) {
 
 
 function CheckMemo() {
-  var dateString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
+  //var dateString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
+  NewDate();
+  var Sortdate = Math.round(Date.now() / 1000);
   if(document.getElementById("TextMamo").value=="") {
     alert("กรุณาใส่ข้อความก่อนกดส่งกำลังใจ");
     return
   }
   db.collection("Bento").add({
+    GroupChart : sGroupChart,
     LineID : sLineID,
     LineName : sLineName,
     LinePicture : sLinePicture,
     PostMemo : document.getElementById("TextMamo").value,
     PostDate : dateString,
-    PostTimeStamp : dateString
+    PostTimeStamp : Sortdate
   });  
   i = i+1;
   var str1 = "";  
@@ -207,7 +212,7 @@ function NewChat(doc) {
     str1+='<div class="list-element"><div class="message-feed media" id="'+i+'"><div class="pull-left">';
     str1+='<img src="'+ doc.data().LinePicture +'" class="img-avatar"></div>';
     str1+='<div class="media-body"><div class="LineName">'+doc.data().LineName +'</div><div class="mf-content">'+ doc.data().PostMemo +'</div>';
-    str1+='<small class="mf-date"><i class="fa fa-clock-o"></i> '+ doc.data().PostTimeStamp +'</small></div></div></div>';
+    str1+='<small class="mf-date"><i class="fa fa-clock-o"></i> '+ doc.data().PostDate +'</small></div></div></div>';
   }
   str = str1+str;
   $("#DisplayMemo").html(str); 
@@ -234,3 +239,33 @@ function stopcountdown() {
 }
 
 
+
+function NewDate() {
+  var today = new Date();
+  var day = today.getDate() + "";
+  var month = (today.getMonth() + 1) + "";
+  var year = today.getFullYear() + "";
+  var hour = today.getHours() + "";
+  var minutes = today.getMinutes() + "";
+  var seconds = today.getSeconds() + "";
+  var ampm = hour >= 12 ? 'PM' : 'AM';
+
+  day = checkZero(day);
+  month = checkZero(month);
+  year = checkZero(year);
+  hour = checkZero(hour);
+  minutes = checkZero(minutes);
+  seconds = checkZero(seconds);
+
+  dateString = day + "/" + month + "/" + year + " " + hour + ":" + minutes + ":" + seconds +" "+ ampm;
+  //alert(GetNewDate);
+  console.log(day + "/" + month + "/" + year + " " + hour + ":" + minutes + ":" + seconds +" "+ ampm);
+}
+
+
+function checkZero(data){
+  if(data.length == 1){
+    data = "0" + data;
+  }
+  return data;
+}
