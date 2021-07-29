@@ -198,6 +198,7 @@ function CheckUpdate() {
   CheckLastTimeUpdate = "";
   //alert("stoptime : "+CheckLastTime);
   console.log(CheckLastTime);
+  
   //db.collection("Bento").where('PostTimeStamp','>',CheckLastTime).get().then((snapshot)=> {
   db.collection("Bento")
   .where('GroupChart','==',sGroupChart)
