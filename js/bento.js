@@ -105,12 +105,28 @@ function DisplayChat() {
   //$("#DisplayMemo").remove();
   document.getElementById("TextMamo").innerHTML = "";   
   document.getElementById("DisplayMemo").innerHTML = "";   
-  db.collection("Bento").orderBy("PostTimeStamp", "desc").get().then((snapshot)=> {
-    snapshot.forEach(doc=>{
-      ShowChat(doc);
-    });
-  });
+
+
+
+  db.collection('Bento')
+    .where('GroupChart','==',sGroupChart)
+    .orderBy('PostTimeStamp','desc')
+    .limit(100).get().then( snapshot => {
+      snapshot.forEach(doc=> {
+        //doc.data().orderBy('PostTimeStamp','asc');
+        ShowChat(doc);
+      });
+  })
   DisplayLog();
+
+
+
+//  db.collection("Bento").orderBy("PostTimeStamp", "desc").get().then((snapshot)=> {
+//    snapshot.forEach(doc=>{
+//      ShowChat(doc);
+//    });
+//  });
+//  DisplayLog();
 }
 
 
