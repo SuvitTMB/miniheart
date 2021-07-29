@@ -199,7 +199,10 @@ function CheckUpdate() {
   //alert("stoptime : "+CheckLastTime);
   console.log(CheckLastTime);
   //db.collection("Bento").where('PostTimeStamp','>',CheckLastTime).get().then((snapshot)=> {
-  db.collection("Bento").where('GroupChart','==',sGroupChart).where('PostTimeStamp','>',CheckLastTime).get().then((snapshot)=> {
+  db.collection("Bento")
+  .where('GroupChart','==',sGroupChart)
+  .where('PostTimeStamp','>',CheckLastTime)
+  .get().then((snapshot)=> {
     snapshot.forEach(doc=> {
       NewChat(doc);
     });
