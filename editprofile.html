@@ -152,8 +152,8 @@
                 <th style="width:75%; text-align: center;">LineName / UserName</th>
               </tr>
             </table>
+            <div style="padding:10px;color:#ccc;cursor: pointer;"><span class="LoadCSV" onclick="export2csv()">Download CSV File</span></center></div>
           </div>
-          <div style="padding:10px;color:#ccc;cursor: pointer;"><span class="LoadCSV" onclick="export2csv()"> Download CSV File</span></center></div>
         </section>
       </div>
 
@@ -405,6 +405,7 @@ var table = document.querySelector('#tbresult');
 
 function DisplayOCSE() {
   document.getElementById('DisplayList').style.display='block';
+  document.getElementById('tbresult').value = '';
   db.where('empBr','==',aEmpBr).get().then((snapshot)=> {
     snapshot.forEach(doc=>{
       showData(doc);
