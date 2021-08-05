@@ -128,31 +128,17 @@
         </div>
       </div>
 
-<!--
-      <div class="container" id="CheckConfirm">
-        <div class="section-title" data-aos="fade-up" style="margin-top:80px;">
-          <div style="padding:15px 0px 15px 0px;">
-            <center>
-
-              <div><img src="./img/register.jpg" style="max-width: 320px"></div>
-              <div class="btn-t1" style="margin-top:40px;width:180px !important;" onclick="window.location.href='editprofile.html';">แก้ไขข้อมูล</div>
-            </center>
-          </div>
-        </div>
-      </div>
--->
-
-
       <div class="container" id="DisplayList">
         <!--<section id="team" class="team section-bg" style="background-color: #ffffff;min-height:450px;">-->
           <div class="container">
-            <table class="table table-bordered" id="tbresult" style="padding:2px; margin-top:15px;">
+            <table class="table table-bordered" style="padding:2px; margin-top:15px;">
               <tr>
                 <th width="10%" style="text-align: center;">No</th>
                 <th width="15%" style="text-align: center;">Picture</th>
                 <th width="75%" style="text-align: center;">LineName / UserName</th>
               </tr>
             </table>
+            <table class="table table-bordered" id="tbresult" style="padding:2px;"></table>
             <div style="padding:10px;color:#ccc;cursor: pointer;"><span class="LoadCSV" onclick="export2csv()">Download CSV File</span></center></div>
           </div>
         <!--</section>-->
@@ -408,7 +394,7 @@ function GotoWeb() {
 var aEmpBr = "OCSE";
 
 function DisplayOCSE() {
-  //document.getElementById('tbresult').innerHTML = "";
+  document.getElementById('tbresult').innerHTML = "";
   var table = document.querySelector('#tbresult');
   document.getElementById('DisplayList').style.display='block';
   db.where('empBr','==',aEmpBr).get().then((snapshot)=> {
@@ -419,6 +405,7 @@ function DisplayOCSE() {
   });
   var i = 0;
 
+
   function showData(doc) {
     i = i+1;
     var row = table.insertRow(-1);
@@ -426,15 +413,13 @@ function DisplayOCSE() {
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
     //var cell4 = row.insertCell(3);
-    cell1.innerHTML = '<div style="text-align:center;">'+i+'</div>';
-    cell2.innerHTML = '<div style="text-align:center;"><img src="'+doc.data().empPicture+'" class="imgprofile-ss"></div>';
-    cell3.innerHTML = '<span style="color:#0056ff; font-size:12px;font-weight:600;">'+doc.data().linename+'</span><br><span style="color:#f68b1f; font-size:12px;">'+doc.data().empName+'</span><br><span style="color:#000000; font-size:10px;line-height: 1.2;">'+doc.data().empAddress+'</span><br><span style="color:#000000; font-size:10px;line-height: 1.2;">'+doc.data().empPhone+'</span>';
+    cell1.innerHTML = '<div style="width:10%;text-align:center;">'+i+'</div>';
+    cell2.innerHTML = '<div style="width:15%;text-align:center;"><img src="'+doc.data().empPicture+'" class="imgprofile-ss"></div>';
+    cell3.innerHTML = '<span style="width:75%;color:#0056ff; font-size:12px;font-weight:600;">'+doc.data().linename+'</span><br><span style="color:#f68b1f; font-size:12px;">'+doc.data().empName+'</span><br><span style="color:#000000; font-size:10px;line-height: 1.2;">'+doc.data().empAddress+'</span><br><span style="color:#000000; font-size:10px;line-height: 1.2;">'+doc.data().empPhone+'</span>';
     //cell4.innerHTML = doc.data().empName;
   }
   //document.getElementById('tbresult').innerHTML = "";
 }
-
-
 
 function export2csv() {
   let data = "";
