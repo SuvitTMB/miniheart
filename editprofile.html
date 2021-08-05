@@ -401,11 +401,11 @@ function GotoWeb() {
 
 
 var aEmpBr = "OCSE";
-var table = document.querySelector('#tbresult');
 
 function DisplayOCSE() {
+  var table = document.querySelector('#tbresult');
   document.getElementById('DisplayList').style.display='block';
-  document.getElementById('tbresult').value = '';
+  document.getElementById('tbresult').innerHTML = "";
   db.where('empBr','==',aEmpBr).get().then((snapshot)=> {
     snapshot.forEach(doc=>{
       showData(doc);
