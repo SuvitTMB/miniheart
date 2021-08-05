@@ -33,10 +33,20 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+
 	<script src="https://static.line-scdn.net/liff/edge/versions/2.8.1/sdk.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
-
+  <style>
+    .imgprofile-ss {
+      width:40px;
+      padding:4px;
+      border-radius: 50%
+    }
+    .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+      padding:2px;
+    }
+  </style>
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -61,7 +71,8 @@
             <center>
             <div style="margin-top:60px;"><img id="pictureUrl" class="imgprofile"></div>
             <div style="color:#0056ff;font-weight: 700; font-size:16px;"><p id="displayName"></p></div>
-            <div class="btn-t2" onclick="ClickCheckLogin()">คลิกที่นี่ ... เพื่อลงทะเบียนที่อยู่ของคุณ</div>
+            <div class="btn-t2" onclick="ClickCheckLogin()">ลงทะเบียนที่อยู่ของคุณ</div>
+            <div class="btn-t1" style="margin-top:40px;" onclick="DisplayOCSE()">ดูรายชื่อ</div>
             <div style="padding-top:25px;color:#555555;">ขอความร่วมมือในการตรวจสอบความถูกต้อง<br>ของข้อมูลของท่านในการเข้าใช้งาน <b>LINE Retail Society</b><br><br>*** ขอสงวนสิทธิ์การเข้าใช้งานเฉพาะชาว Retail เท่านั้น ***</div>
             <div><div id="isLoggedIn" style="color:#ffffff;"></div><div id="userId" style="color:#ffffff;"></div></div>
             </center>
@@ -103,8 +114,8 @@
             <div>Email@ttbbank.com</div>
             <div><input type="text" id="email" placeholder="ระบุอีเมล์ .."></div>
             -->
-            <div>ที่จัดส่งของรางวัล (ที่ตั้งสาขา)</div>
-            <div style="color:#0056ff;"><textarea id="address" placeholder="ระบุที่จัดส่งของรางวัล .." style="height:100px"></textarea></div>
+            <div>ที่อยู่ปัจจุบันที่สามารถติดต่อได้</div>
+            <div style="color:#0056ff;"><textarea id="address" placeholder="ที่อยู่ปัจจุบันที่สามารถติดต่อได้ .." style="height:100px"></textarea></div>
             <!--
             <div>ระบุเหตุผลในการเข้าใช้งาน <font color="#ff0000">*</font></div>
             <div style="color:#0056ff;"><textarea id="memo" placeholder="โปรดระบุ .." style="height:100px" required></textarea></div>
@@ -124,22 +135,29 @@
 
               <div><img src="./img/register.jpg" style="max-width: 320px"></div>
               <div class="btn-t1" style="margin-top:40px;width:180px !important;" onclick="window.location.href='editprofile.html';">แก้ไขข้อมูล</div>
-              <div class="btn-t1" style="margin-top:40px;width:140px !important;" onclick="window.location.href='editprofile.html';">ดูรายชื่อ</div>
-
-<!--
-            <div style="margin-top:60px;color:#0056ff;font-weight: 700; font-size:16px;padding:10px;">ยินดีต้อนรับสู่ "<b>LINE Retail Society</b>"</div>
-            <div style="padding:10px;"><img src="img/ready.png" width="300px;"></div>
-            <div class="btn-t2" onclick="GotoWeb()" style="margin-top:20px;">คลิกที่นี่ เพื่อเข้าสู่เว็บไซต์</div>
--->
-            <!--
-            <div style="padding-top:25px;color:#ff0000;">โปรดตรวจสอบข้อมูลของคุณให้ถูกต้อง</div>
-            <div style="padding-top:15px;color:#0056ff;">... กรุณารอการยืนยันตัวตนภายใน 48 ชั่วโมง ...<br>ก่อนเข้าทำรายการต่อไป</div>
-            <div><div id="isLoggedIn" style="color:#ff9999;"></div><div id="userId" style="color:#ff9999;"></div></div>
-            -->
             </center>
           </div>
         </div>
       </div>
+
+
+
+      <div class="container" id="DisplayList">
+        <section id="team" class="team section-bg" style="background-color: #ffffff;min-height:450px;margin-top:30px;">
+          <div class="container">
+            <table class="table table-bordered" id="tbresult" style="padding:2px;">
+              <tr>
+                <th style="width:10%; text-align: center;">No</th>
+                <th style="width:15%; text-align: center;">Picture</th>
+                <th style="width:75%; text-align: center;">LineName / UserName</th>
+              </tr>
+            </table>
+          </div>
+          <div style="padding:10px;color:#ccc;cursor: pointer;"><span class="LoadCSV" onclick="export2csv()"> Download CSV File</span></center></div>
+        </section>
+      </div>
+
+
     </section>
   </main>
   </div>
@@ -150,19 +168,22 @@
 
 
 <script type="text/javascript">
-  //var aLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
-  //var aLinename = "Website";
-  //var aPicture = "https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8";
-
 
   var aCheck = 0;
   var Eid = "";
   var aStatusConfirm = 0;
-  var aStatusPass = 0;
   var aStatusEdit = 0;
   var alineID = "";
   var aPicture = "";
   var aLinename = "";
+  var aStatusPass = 0;
+
+/*
+  var alineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
+  var aLinename = "Website";
+  var aPicture = "https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8";
+*/
+
 
   //var dateString = timeSolver.getString(new Date(), "YYYY/MM/DD HH:MM:SS.SSS")
   var dateString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
@@ -193,9 +214,11 @@
   document.getElementById('CheckLogin').style.display='block';
   document.getElementById('CheckProfile').style.display='none';
   document.getElementById('CheckConfirm').style.display='none';
+  document.getElementById('DisplayList').style.display='none';
   //document.getElementById('CheckLockUser').style.display='none';
 
 
+/*
   async function main() {
     await liff.init({ liffId: "1655966947-m8nNr7OQ" });
     document.getElementById("isLoggedIn").append(liff.isLoggedIn());
@@ -225,7 +248,7 @@
       external: true     
     })
   }
-
+*/
 
 	function ClickCheckLogin() {
 		document.getElementById('CheckLogin').style.display='none';
@@ -238,7 +261,7 @@
 
   //aStatusPass = 9;
   function ReadData() {
-    //alert(aLineID);
+    alert(alineID);
     db.where('lineID','==',alineID).get().then((snapshot)=> {
       snapshot.forEach(doc=> {
         aStatusPass = doc.data().statuspass;
@@ -367,10 +390,67 @@ function ClickSaveProfile() {
   }
 }
 
+
+
 function GotoWeb() {
   window.location.href = 'editprofie.html';
 }
 
+
+
+var aEmpBr = "OCSE";
+var table = document.querySelector('#tbresult');
+
+function DisplayOCSE() {
+  document.getElementById('DisplayList').style.display='block';
+  db.where('empBr','==',aEmpBr).get().then((snapshot)=> {
+    snapshot.forEach(doc=>{
+      showData(doc);
+      //console.log(doc.data());
+    });
+  });
+  var i = 0;
+
+  function showData(doc) {
+    i = i+1;
+    var row = table.insertRow(-1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    //var cell4 = row.insertCell(3);
+    cell1.innerHTML = '<div style="text-align:center;">'+i+'</div>';
+    cell2.innerHTML = '<div style="text-align:center;"><img src="'+doc.data().empPicture+'" class="imgprofile-ss"></div>';
+    cell3.innerHTML = '<span style="color:#0056ff; font-size:12px;font-weight:600;">'+doc.data().linename+'</span><br><span style="color:#f68b1f; font-size:12px;">'+doc.data().empName+'</span><br><span style="color:#000000; font-size:10px;line-height: 1.2;">'+doc.data().empAddress+'</span><br><span style="color:#000000; font-size:10px;line-height: 1.2;">'+doc.data().empPhone+'</span>';
+    //cell4.innerHTML = doc.data().empName;
+  }
+}
+
+
+
+function export2csv() {
+  let data = "";
+  const tableData = [];
+  const rows = document.querySelectorAll("table tr");
+  for (const row of rows) {
+    const rowData = [];
+    for (const [index, column] of row.querySelectorAll("th, td").entries()) {
+      // To retain the commas in the "Description" column, we can enclose those fields in quotation marks.
+      if ((index + 1) % 3 === 0) {
+        rowData.push('"' + column.innerText + '"');
+      } else {
+        rowData.push(column.innerText);
+      }
+    }
+    tableData.push(rowData.join(","));
+  }
+  data += tableData.join("\n");
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([data], { type: "text/csv" }));
+  a.setAttribute("download", "data.csv");
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
 
 
 function phone_formatting(ele,restore) {
