@@ -45,7 +45,7 @@
       border-radius: 50%
     }
     .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
-      padding:2px;
+      padding:2px; line-height: 1.2;
     }
   </style>
 </head>
@@ -131,18 +131,11 @@
       <div class="container" id="DisplayList">
         <!--<section id="team" class="team section-bg" style="background-color: #ffffff;min-height:450px;">-->
           <div class="container">
-            <table class="table table-bordered" style="padding:2px; margin-top:15px;">
+            <table class="table table-bordered" id="tbresult" style="padding:2px; margin-top:15px;">
               <tr>
                 <th width="10%" style="text-align: center;">No</th>
                 <th width="15%" style="text-align: center;">Picture</th>
                 <th width="75%" style="text-align: center;">LineName / UserName</th>
-              </tr>
-            </table>
-            <table class="table table-bordered" id="tbresult">
-              <tr>
-                <th width="10%" style="text-align: center;"></th>
-                <th width="15%" style="text-align: center;"></th>
-                <th width="75%" style="text-align: center;"></th>
               </tr>
             </table>
             <div style="padding:10px;color:#ccc;cursor: pointer;"><span class="LoadCSV" onclick="export2csv()">Download CSV File</span></center></div>
@@ -209,6 +202,7 @@
   document.getElementById('DisplayList').style.display='none';
   //document.getElementById('CheckLockUser').style.display='none';
 
+
   async function main() {
     await liff.init({ liffId: "1655966947-m8nNr7OQ" });
     document.getElementById("isLoggedIn").append(liff.isLoggedIn());
@@ -240,6 +234,7 @@
       external: true     
     })
   }
+
 
 	function ClickCheckLogin() {
 		document.getElementById('CheckLogin').style.display='none';
@@ -400,9 +395,11 @@ function GotoWeb() {
 var aEmpBr = "OCSE";
 
 function DisplayOCSE() {
-  document.getElementById('tbresult').innerHTML = "";
-  var table = document.querySelector('#tbresult');
+  $('#tbresult').html('');
   document.getElementById('DisplayList').style.display='block';
+  var table = document.querySelector('#tbresult');
+  //document.getElementById('tbresult').value = "";
+  //document.getElementById('tbresult').innerHTML = "";
   db.where('empBr','==',aEmpBr).get().then((snapshot)=> {
     snapshot.forEach(doc=>{
       showData(doc);
@@ -419,9 +416,9 @@ function DisplayOCSE() {
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
     //var cell4 = row.insertCell(3);
-    cell1.innerHTML = '<div style="text-align:center;">'+i+'</div>';
-    cell2.innerHTML = '<div style="text-align:center;"><img src="'+doc.data().empPicture+'" class="imgprofile-ss"></div>';
-    cell3.innerHTML = '<span style="color:#0056ff; font-size:12px;font-weight:600;">'+doc.data().linename+'</span><br><span style="color:#f68b1f; font-size:12px;">'+doc.data().empName+'</span><br><span style="color:#000000; font-size:10px;line-height: 1.2;">'+doc.data().empAddress+'</span><br><span style="color:#000000; font-size:10px;line-height: 1.2;">'+doc.data().empPhone+'</span>';
+    cell1.innerHTML = '<div style="width:40px;text-align:center;">'+i+'</div>';
+    cell2.innerHTML = '<div style="width:50px;text-align:center;"><img src="'+doc.data().empPicture+'" class="imgprofile-ss"></div>';
+    cell3.innerHTML = '<span style="width:290px;color:#0056ff; font-size:12px;font-weight:600;">'+doc.data().linename+'</span><br><span style="color:#f68b1f; font-size:12px;">'+doc.data().empName+'</span><br><span style="color:#000000; font-size:10px;line-height: 1.2;">'+doc.data().empAddress+'</span><br><span style="color:#000000; font-size:10px;line-height: 1.2;">'+doc.data().empPhone+'</span>';
     //cell4.innerHTML = doc.data().empName;
   }
   //document.getElementById('tbresult').innerHTML = "";
