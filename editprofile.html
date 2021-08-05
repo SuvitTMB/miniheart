@@ -229,6 +229,7 @@
   }
   main()
 
+
   async function getUserProfile() {
     const profile = await liff.getProfile();
     document.getElementById("pictureUrl").src = profile.pictureUrl;
@@ -241,12 +242,14 @@
     aPicture = profile.pictureUrl;
   }
 
+
   function openWindow() {
     liff.openWindow({
       url: "https://line.me",
       external: true     
     })
   }
+
 
 	function ClickCheckLogin() {
 		document.getElementById('CheckLogin').style.display='none';
@@ -259,7 +262,7 @@
 
   //aStatusPass = 9;
   function ReadData() {
-    alert(alineID);
+    //alert(alineID);
     db.where('lineID','==',alineID).get().then((snapshot)=> {
       snapshot.forEach(doc=> {
         aStatusPass = doc.data().statuspass;
