@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>LINE Retail Society</title>
+	<meta charset="utf-8">
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+	<!-- End Google Tag Manager -->
+
+	<!-- Favicons -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <!-- End Google Tag Manager -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <link href='css/app.css' rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<script src="https://static.line-scdn.net/liff/edge/versions/2.8.1/sdk.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="index.html">Retail Society</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section id="team" class="team section-bg" style="background-color: #ffffff;">
+      <div class="container" id="CheckLogin">
+        <div class="section-title" data-aos="fade-up" style="margin-top:10px;">
+          <div style="color:#0056ff;font-size:18px;margin-top:-20px;">LINE Retail Society</div>
+          <div style="padding:15px 0px 15px 0px;">
+            <center>
+            <div style="margin-top:60px;"><img id="pictureUrl" class="imgprofile"></div>
+            <div style="color:#0056ff;font-weight: 700; font-size:16px;"><p id="displayName"></p></div>
+            <div class="btn-t2" onclick="ClickCheckLogin()">คลิกที่นี่ ... เพื่อลงทะเบียนที่อยู่ของคุณ</div>
+            <div style="padding-top:25px;color:#555555;">ขอความร่วมมือในการตรวจสอบความถูกต้อง<br>ของข้อมูลของท่านในการเข้าใช้งาน <b>LINE Retail Society</b><br><br>*** ขอสงวนสิทธิ์การเข้าใช้งานเฉพาะชาว Retail เท่านั้น ***</div>
+            <div><div id="isLoggedIn" style="color:#ffffff;"></div><div id="userId" style="color:#ffffff;"></div></div>
+            </center>
+          </div>
+        </div>
+      </div>
+
+      <div class="container" id="CheckProfile">
+        <div class="section-title" data-aos="fade-up" style="margin-top:-10px;color:#555555;">
+          <center>
+          <div style="font-size: 15px;">ตรวจสอบข้อมูลของคุณ</div>
+          <div style="margin-top:60px;"><img id="pictureUrl1" class="imgprofile"></div>
+          <div style="color:#0056ff;font-weight: 700; font-size:16px;"><p id="displayName1"></p></div>
+          </center>
+          <div style="color:#888888;text-align: left;padding:5px 30px;margin-top:15px;font-size:12px;">
+            <div>รหัสพนักงาน (ttb bank) <font color="#ff0000">*</font></div>
+            <div style="color:#0056ff;"><input type="number" id="empid" placeholder="รหัสพนักงาน .." pattern="[+-]?[0-9]" required disabled></div>
+            <p id="empid_req" style="color:#ff0000;"></p>
+            <div>ชื่อ-นามสกุล (ภาษาไทย) <font color="#ff0000">*</font></div>
+            <div style="color:#0056ff;"><input type="text" id="fname" placeholder="ชื่อ นามสกุล .." required disabled></div>
+            <p id="fname_req" style="color:#ff0000;"></p>
+            <div>โทรศัพท์มือถือ</div>
+            <div style="color:#0056ff;"><input type="text" name="phone" id="phone" pattern="[+-]?[0-9]"></div>
+            <!--<p id="phone_req" style="color:#ff0000;"></p>-->
+            <div>สังกัดหน่วยงาน</div>
+            <div style="color:#0056ff;">
+              <select name="cars" id="br">
+                <option value="BBD">BBD Team</option>
+                <option value="RASC">RSAC Team</option>
+                <option value="PRODUCT">PRODUCT Team</option>
+                <option value="OCSE">OCSE Team</option>
+                <option value="CHIEF">CHIEF Team</option>
+                <option value="OTHER">Other</option>
+              </select>
+            </div>
+            <!--
+            <div>สังกัดหน่วยงาน</div>
+            <div><input type="text" id="br" placeholder="หน่วยงาน / สาขา (รหัสสาขา) .."></div>
+            <div>Email@ttbbank.com</div>
+            <div><input type="text" id="email" placeholder="ระบุอีเมล์ .."></div>
+            -->
+            <div>ที่จัดส่งของรางวัล (ที่ตั้งสาขา)</div>
+            <div style="color:#0056ff;"><textarea id="address" placeholder="ระบุที่จัดส่งของรางวัล .." style="height:100px"></textarea></div>
+            <!--
+            <div>ระบุเหตุผลในการเข้าใช้งาน <font color="#ff0000">*</font></div>
+            <div style="color:#0056ff;"><textarea id="memo" placeholder="โปรดระบุ .." style="height:100px" required></textarea></div>
+            <p id="memo_req" style="color:#ff0000;"></p>
+            -->
+            <center><div class="btn-t2" onclick="ClickSaveProfile()">บันทึกรายการ</div></center>
+            <div class="clr" style="height: 30px;"></div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container" id="CheckConfirm">
+        <div class="section-title" data-aos="fade-up" style="margin-top:80px;">
+          <div style="padding:15px 0px 15px 0px;">
+            <center>
+
+              <div><img src="./img/register.jpg" style="max-width: 320px"></div>
+              <div class="btn-t1" style="margin-top:40px;width:180px !important;" onclick="window.location.href='editprofile.html';">แก้ไขข้อมูล</div>
+              <div class="btn-t1" style="margin-top:40px;width:140px !important;" onclick="window.location.href='editprofile.html';">ดูรายชื่อ</div>
+
+<!--
+            <div style="margin-top:60px;color:#0056ff;font-weight: 700; font-size:16px;padding:10px;">ยินดีต้อนรับสู่ "<b>LINE Retail Society</b>"</div>
+            <div style="padding:10px;"><img src="img/ready.png" width="300px;"></div>
+            <div class="btn-t2" onclick="GotoWeb()" style="margin-top:20px;">คลิกที่นี่ เพื่อเข้าสู่เว็บไซต์</div>
+-->
+            <!--
+            <div style="padding-top:25px;color:#ff0000;">โปรดตรวจสอบข้อมูลของคุณให้ถูกต้อง</div>
+            <div style="padding-top:15px;color:#0056ff;">... กรุณารอการยืนยันตัวตนภายใน 48 ชั่วโมง ...<br>ก่อนเข้าทำรายการต่อไป</div>
+            <div><div id="isLoggedIn" style="color:#ff9999;"></div><div id="userId" style="color:#ff9999;"></div></div>
+            -->
+            </center>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  </div>
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Template Main JS File 
+  <script src="js/config.js"></script>-->
+
+
+<script type="text/javascript">
+  //var aLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
+  //var aLinename = "Website";
+  //var aPicture = "https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8";
+
+
+  var aCheck = 0;
+  var Eid = "";
+  var aStatusConfirm = 0;
+  var aStatusPass = 0;
+  var aStatusEdit = 0;
+  var alineID = "";
+  var aPicture = "";
+  var aLinename = "";
+
+  //var dateString = timeSolver.getString(new Date(), "YYYY/MM/DD HH:MM:SS.SSS")
+  var dateString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
+  //console.log(dateString);
+  //if(aStatusEdit==0) {
+  document.getElementById('fname').disabled = false;
+  document.getElementById('empid').disabled = false;
+  //} else if(aStatusEdit!=0) {
+  //  document.getElementById('fname').disabled = true;
+  //  document.getElementById('empid').disabled = true;
+  //}
+
+
+
+  var firebaseConfig = {
+    apiKey: "AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE",
+    authDomain: "retailproject-6f4fc.firebaseapp.com",
+    projectId: "retailproject-6f4fc",
+    storageBucket: "retailproject-6f4fc.appspot.com",
+    messagingSenderId: "653667385625",
+    appId: "1:653667385625:web:a5aed08500de80839f0588",
+    measurementId: "G-9SKTRHHSW9"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  //firebase.analytics();
+  var db = firebase.firestore().collection("CheckProfile");
+  document.getElementById('CheckLogin').style.display='block';
+  document.getElementById('CheckProfile').style.display='none';
+  document.getElementById('CheckConfirm').style.display='none';
+  //document.getElementById('CheckLockUser').style.display='none';
+
+
+  async function main() {
+    await liff.init({ liffId: "1655966947-4RRw7M2b" });
+    document.getElementById("isLoggedIn").append(liff.isLoggedIn());
+    if(liff.isLoggedIn()) {
+      getUserProfile();
+    } else {
+      liff.login();
+    }
+  }
+  main()
+
+  async function getUserProfile() {
+    const profile = await liff.getProfile();
+    document.getElementById("pictureUrl").src = profile.pictureUrl;
+    document.getElementById("pictureUrl1").src = profile.pictureUrl;
+    document.getElementById("userId").append(profile.userId);
+    document.getElementById("displayName").append(profile.displayName);
+    document.getElementById("displayName1").append(profile.displayName);
+    alineID = profile.userId;
+    aLinename = profile.displayName;
+    aPicture = profile.pictureUrl;
+  }
+
+  function openWindow() {
+    liff.openWindow({
+      url: "https://line.me",
+      external: true     
+    })
+  }
+
+
+	function ClickCheckLogin() {
+		document.getElementById('CheckLogin').style.display='none';
+		document.getElementById('CheckProfile').style.display='block';
+		document.getElementById('CheckConfirm').style.display='none';
+    //document.getElementById('CheckLockUser').style.display='none';
+		ReadData();
+	  //GetLineID(alineID);
+	}
+
+  //aStatusPass = 9;
+  function ReadData() {
+    alert(aLineID);
+    db.where('lineID','==',aLineID).get().then((snapshot)=> {
+      snapshot.forEach(doc=> {
+        aStatusPass = doc.data().statuspass;
+        aStatusConfirm = doc.data().statusconfirm;
+        aStatusEdit = doc.data().statusedit;
+        //if(aStatusConfirm==1) {
+        //  window.location.href = 'index.html';
+        //}
+
+        document.getElementById('CheckLogin').style.display='none';
+        document.getElementById('CheckProfile').style.display='block';
+        document.getElementById('CheckConfirm').style.display='none';
+        //document.getElementById('CheckLockUser').style.display='none';
+
+        document.getElementById("fname").value = doc.data().empName;
+        document.getElementById("empid").value = doc.data().empID;
+        //document.getElementById("email").value = doc.data().empEmail
+        document.getElementById("phone").value = doc.data().empPhone;
+        document.getElementById("br").value = doc.data().empBr;
+        document.getElementById("address").value = doc.data().empAddress;
+        //document.getElementById("memo").value = doc.data().memo;
+        //alert("aStatusEdit = "+aStatusEdit);
+        if(aStatusEdit!=2) {
+	        document.getElementById('fname').disabled = false;
+	        document.getElementById('empid').disabled = false;
+        } else if(aStatusEdit==2) {
+	        document.getElementById('fname').disabled = true;
+	        document.getElementById('empid').disabled = true;
+        }
+        Eid = doc.id;
+        aCheck = 1;
+      });
+    });
+  }
+
+
+function ClickSaveProfile() {
+  var GotoPage = 0;
+  var CheckReq = 0;
+  var inpObj = document.getElementById("empid");
+  var inpObj1 = document.getElementById("fname");
+  //var inpObj2 = document.getElementById("memo");
+  //var inpObj3 = document.getElementById("phone");
+
+  if (!inpObj.checkValidity()) {
+    document.getElementById("empid_req").innerHTML = inpObj.validationMessage;
+  } else {
+    CheckReq = CheckReq+1;
+    document.getElementById("empid_req").innerHTML = "";
+  } 
+  if (!inpObj1.checkValidity()) {
+    document.getElementById("fname_req").innerHTML = inpObj1.validationMessage;
+  } else {
+    CheckReq = CheckReq+1;
+    document.getElementById("fname_req").innerHTML = "";
+  } 
+  //if (!inpObj2.checkValidity()) {
+  //  document.getElementById("memo_req").innerHTML = inpObj2.validationMessage;
+  //} else {
+  //  CheckReq = CheckReq+1;
+  //  document.getElementById("memo_req").innerHTML = "";
+  //} 
+  /*
+  if (!inpObj3.checkValidity()) {
+    document.getElementById("phone_req").innerHTML = inpObj3.validationMessage;
+  } else {
+    CheckReq = CheckReq+1;
+    document.getElementById("phone_req").innerHTML = "";
+  } 
+  */
+
+  if(CheckReq==2) {
+    if(document.getElementById("fname").value!="") { var a1 = document.getElementById("fname").value; } else { var a1 = "";}
+    if(document.getElementById("empid").value!="") { var a2 = document.getElementById("empid").value; } else { var a2 = "";}
+    //if(document.getElementById("email").value!="") { var a3 = document.getElementById("email").value; } else { var a3 = "";}
+    if(document.getElementById("phone").value!="") { var a4 = document.getElementById("phone").value; } else { var a4 = "";}
+    if(document.getElementById("br").value!="") { var a5 = document.getElementById("br").value; } else { var a5 = "";}
+    if(document.getElementById("address").value!="") { var a6 = document.getElementById("address").value; } else { var a6 = "";}
+    //if(document.getElementById("memo").value!="") { var a7 = document.getElementById("memo").value; } else { var a7 = "";}
+
+    if(aCheck==1) {
+      db.doc(Eid).update({
+        linename : aLinename,
+        empName : a1,
+        empID : a2,
+        //empEmail : a3,
+        empPhone : a4,
+        empBr : a5,
+        empAddress : a6,   
+        //memo : a7, 
+        empPicture : aPicture,
+        lastcheckin : dateString,
+        statusconfirm : aStatusConfirm,
+        statuspass : aStatusPass,
+        statusedit : aStatusEdit   
+      });
+      GotoPage = 1;
+    } else {
+      db.add({
+        lineID : alineID,
+        linename : aLinename,
+        empName : a1,
+        empID : a2,
+        //empEmail : a3,
+        empPhone : a4,
+        empBr : a5,
+        empAddress : a6,   
+        //memo : a7, 
+        empPicture : aPicture,
+        lastcheckin : dateString,
+        statusconfirm : 0,  
+        statuspass : 0,
+        statusedit : 1   
+      });   
+      GotoPage = 1;
+    }
+    if(GotoPage==1) {
+      //GotoWeb();
+      document.getElementById('CheckLogin').style.display='none';
+      document.getElementById('CheckProfile').style.display='none';
+      document.getElementById('CheckConfirm').style.display='block';
+      //document.getElementById('CheckLockUser').style.display='none';
+      //window.location.href = 'index.html';
+    }
+
+  }
+}
+
+function GotoWeb() {
+  window.location.href = 'editprofie.html';
+}
+
+
+
+function phone_formatting(ele,restore) {
+  var new_number,
+      selection_start = ele.selectionStart,
+      selection_end = ele.selectionEnd,
+      number = ele.value.replace(/\D/g,'');
+  
+  // automatically add dashes
+  if (number.length > 2) {
+    // matches: 123 || 123-4 || 123-45
+    new_number = number.substring(0,3) + '-';
+    if (number.length === 4 || number.length === 5) {
+      // matches: 123-4 || 123-45
+      new_number += number.substr(3);
+    }
+    else if (number.length > 5) {
+      // matches: 123-456 || 123-456-7 || 123-456-789
+      new_number += number.substring(3,6) + '-';
+    }
+    if (number.length > 6) {
+      // matches: 123-456-7 || 123-456-789 || 123-456-7890
+      new_number += number.substring(6);
+    }
+  }
+  else {
+    new_number = number;
+  }
+  
+  // if value is heigher than 12, last number is dropped
+  // if inserting a number before the last character, numbers
+  // are shifted right, only 12 characters will show
+  ele.value =  (new_number.length > 12) ? new_number.substring(12,0) : new_number;
+  
+  // restore cursor selection,
+  // prevent it from going to the end
+  // UNLESS
+  // cursor was at the end AND a dash was added
+  document.getElementById('msg').innerHTML='<p>Selection is: ' + selection_end + ' and length is: ' + new_number.length + '</p>';
+  
+  if (new_number.slice(-1) === '-' && restore === false
+      && (new_number.length === 8 && selection_end === 7)
+          || (new_number.length === 4 && selection_end === 3)) {
+      selection_start = new_number.length;
+      selection_end = new_number.length;
+  }
+  else if (restore === 'revert') {
+    selection_start--;
+    selection_end--;
+  }
+  ele.setSelectionRange(selection_start, selection_end);
+
+}
+  
+function phone_number_check(field,e) {
+  var key_code = e.keyCode,
+      key_string = String.fromCharCode(key_code),
+      press_delete = false,
+      dash_key = 189,
+      delete_key = [8,46],
+      direction_key = [33,34,35,36,37,38,39,40],
+      selection_end = field.selectionEnd;
+  
+  // delete key was pressed
+  if (delete_key.indexOf(key_code) > -1) {
+    press_delete = true;
+  }
+  
+  // only force formatting is a number or delete key was pressed
+  if (key_string.match(/^\d+$/) || press_delete) {
+    phone_formatting(field,press_delete);
+  }
+  // do nothing for direction keys, keep their default actions
+  else if(direction_key.indexOf(key_code) > -1) {
+    // do nothing
+  }
+  else if(dash_key === key_code) {
+    if (selection_end === field.value.length) {
+      field.value = field.value.slice(0,-1)
+    }
+    else {
+      field.value = field.value.substring(0,(selection_end - 1)) + field.value.substr(selection_end)
+      field.selectionEnd = selection_end - 1;
+    }
+  }
+  // all other non numerical key presses, remove their value
+  else {
+    e.preventDefault();
+//    field.value = field.value.replace(/[^0-9\-]/g,'')
+    phone_formatting(field,'revert');
+  }
+
+}
+
+document.getElementById('phone').onkeyup = function(e) {
+  phone_number_check(this,e);
+}
+
+</script>
+
+
+</body>
+</html>
