@@ -238,7 +238,7 @@
 
   //aStatusPass = 9;
   function ReadData() {
-    alert(aLineID);
+    //alert(aLineID);
     db.where('lineID','==',alineID).get().then((snapshot)=> {
       snapshot.forEach(doc=> {
         aStatusPass = doc.data().statuspass;
